@@ -1,6 +1,6 @@
 // TEMPORARY DATA
 
-export let role = "admin";
+export let role = "student";
 
 export const teachersData = [
   {
@@ -1059,5 +1059,121 @@ export const calendarEvents = [
     allDay: false,
     start: new Date(2024, 7, 21, 13, 0),
     end: new Date(2024, 7, 21, 13, 45),
+  },
+];
+
+export const gradeData = [
+  {
+    id: 1,
+    courseCode: "MATH101",
+    courseTitle: "Calculus",
+    creditUnit: 3,
+    finalGrade: 2.50,
+    teacher: "John Doe",
+    academicYear: "2024-2025"
+  },
+  {
+    id: 2,
+    courseCode: "ENGL101",
+    courseTitle: "English Composition",
+    creditUnit: 3,
+    finalGrade: 2.25,
+    teacher: "Jane Doe",
+    academicYear: "2023-2024"
+  },
+  {
+    id: 3,
+    courseCode: "PHYS101",
+    courseTitle: "Physics",
+    creditUnit: 3,
+    finalGrade: 2.00,
+    teacher: "John Doe",
+    academicYear: "2023-2024"
+  },
+  {
+    id: 4,
+    courseCode: "CHEM101",
+    courseTitle: "Chemistry",
+    creditUnit: 3,
+    finalGrade: 1.00,
+    teacher: "Jane Doe",
+    academicYear: "2022-2023"
+  },
+  {
+    id: 5,
+    courseCode: "HIST101",
+    courseTitle: "History",
+    creditUnit: 3,
+    finalGrade: 1.25,
+    teacher: "John Doe",
+    academicYear: "2022-2023"
+  },
+  {
+    id: 6,
+    courseCode: "HIST102",
+    courseTitle: "History2",
+    creditUnit: 3,
+    finalGrade: 1.25,
+    teacher: "John Doe",
+    academicYear: "2022-2023"
+  },
+];
+
+export const checklistData = [
+  {
+    id: 1,
+    courseCode: "MATH101",
+    courseTitle: "Calculus",
+    creditUnit: 3,
+    semester: "First Semester",
+    yearLevel: "First Year",
+  },
+  {
+    id: 2,
+    courseCode: "ENGL101",
+    courseTitle: "English Composition",
+    creditUnit: 3,
+    semester: "Second Semester",
+    yearLevel: "First Year",
+  },
+  {
+    id: 3,
+    courseCode: "PHYS101",
+    courseTitle: "Physics",
+    creditUnit: 3,
+    semester: "First Semester",
+    yearLevel: "First Year",
+  },
+  {
+    id: 4,
+    courseCode: "CHEM101",
+    courseTitle: "Chemistry",
+    creditUnit: 3,
+    semester: "Second Semester",
+    yearLevel: "First Year",
+  },
+  {
+    id: 5,
+    courseCode: "HIST101",
+    courseTitle: "History",
+    creditUnit: 3,
+    semester: "First Semester",
+    yearLevel: "First Year",
+  },
+  {
+    id: 6,
+    courseCode: "BIO101",
+    courseTitle: "Biology",
+    creditUnit: 3,
+    semester: "Second Semester",
+    yearLevel: "First Year",
+  },
+  {
+    id: 7,
+    courseCode: "CS101",
+    courseTitle: "Computer Science",
+    creditUnit: 3,
+    semester: "Second Semester",
+    yearLevel: "First Year",
   },
 ];

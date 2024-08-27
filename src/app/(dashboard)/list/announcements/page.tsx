@@ -31,6 +31,7 @@ const columns = [
     {
         header:"Actions",
         accessor:"actions",
+        className: role === "student" ? "hidden" : ""
     },    
     
 ]
