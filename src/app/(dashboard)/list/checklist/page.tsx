@@ -4,34 +4,21 @@ import React, { useState } from 'react';
 import Table from '@/components/Table';
 import { checklistData } from '@/lib/data';
 
-const checklist = () => {
-  const [selectedYear, setSelectedYear] = useState(''); // State to track the selected year
+const Checklist = () => {
+  const [selectedYear, setSelectedYear] = useState<string>(''); // Type added to useState
 
   const handleButtonClick = (year: string) => {
-    setSelectedYear(year); // Update the state with the selected year
+    setSelectedYear(year);
   };
 
   const columns = [
-    {
-        header:"Course Code", 
-        accessor:"courseCode"
-    },
-    {
-        header:"Course Title",
-        accessor:"courseTitle",
-        style: {wordBreak: 'break-word'}
-    },  
-    {
-        header:"Credit Unit",
-        accessor:"creditUnit",
-        style: {wordBreak: 'break-word'}
-    },
-    
-]
+    { header: "Course Code", accessor: "courseCode", className: "w-1/3 h-12" },
+    { header: "Course Title", accessor: "courseTitle", className: "w-1/3 h-12" },
+    { header: "Credit Unit", accessor: "creditUnit", className: "w-1/3 h-12" }
+  ];
 
-  const filteredDataFirstSemester = checklistData.filter(item => item.yearLevel === selectedYear && item.semester === 'First Semester');
-
-  const filteredDataSecondSemester = checklistData.filter(item => item.yearLevel === selectedYear && item.semester === 'Second Semester');
+  const filteredData = (semester: string) => 
+    checklistData.filter(item => item.yearLevel === selectedYear && item.semester === semester);
 
   return (
     <>
@@ -58,18 +45,17 @@ const checklist = () => {
           </div>
         </div>
 
-        {/* Conditionally render content based on selectedYear */}
-        {selectedYear !== '' && (
+        {selectedYear && (
           <>
             <p className="text-lg font-semibold mt-4">First Semester</p>
             <Table
-              data={filteredDataFirstSemester}
+              data={filteredData('First Semester')}
               columns={columns}
               renderRow={(item) => (
-                <tr key={item.id} className="border-b border-gray-200 even:bg-slate-50 text-sm hover:bg-lamaPurpleLight">
-                  <td style={{wordBreak: 'break-word'}}>{item.courseCode}</td>
-                  <td style={{wordBreak: 'break-word'}}>{item.courseTitle}</td>
-                  <td style={{wordBreak: 'break-word'}}>{item.creditUnit}</td>
+                <tr key={item.id} className="border-b border-gray-200 even:bg-slate-50 text-sm hover:bg-lamaPurpleLight h-12">
+                  <td className="w-1/3">{item.courseCode}</td>
+                  <td className="w-1/3">{item.courseTitle}</td>
+                  <td className="w-1/3">{item.creditUnit}</td>
                 </tr>
               )}
             />
@@ -77,17 +63,17 @@ const checklist = () => {
         )}
       </div>
 
-      {selectedYear !== '' && (
+      {selectedYear && (
         <div className='bg-white p-4 rounded-md flex-1 m-4 mt-0'>
           <p className="text-lg font-semibold">Second Semester</p>
           <Table
-            data={filteredDataSecondSemester}
+            data={filteredData('Second Semester')}
             columns={columns}
             renderRow={(item) => (
-              <tr key={item.id} className="border-b border-gray-200 even:bg-slate-50 text-sm hover:bg-lamaPurpleLight">
-                <td style={{wordBreak: 'break-word'}}>{item.courseCode}</td>
-                <td style={{wordBreak: 'break-word'}}>{item.courseTitle}</td>
-                <td style={{wordBreak: 'break-word'}}>{item.creditUnit}</td>
+              <tr key={item.id} className="border-b border-gray-200 even:bg-slate-50 text-sm hover:bg-lamaPurpleLight h-12">
+                <td className="w-1/3">{item.courseCode}</td>
+                <td className="w-1/3">{item.courseTitle}</td>
+                <td className="w-1/3">{item.creditUnit}</td>
               </tr>
             )}
           />
@@ -97,7 +83,5 @@ const checklist = () => {
   );
 };
 
-export default checklist;
-
-
+export default Checklist;
 
