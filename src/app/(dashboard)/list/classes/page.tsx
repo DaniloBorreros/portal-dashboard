@@ -52,9 +52,9 @@ const ClassListPage = () => {
             <td className="hidden md:table-cell">{item.supervisor}</td>
             <td>
                 <div className='flex items-center gap-2'>
-                        <Link href={'/list/teachers/${items.id}'}>
+                        {/* <Link href={'/list/teachers/${items.id}'}> */}
                         <FormModal table="class" type="update" data={item}/>
-                        </Link>
+                        {/* </Link> */}
                         {role === "admin" && (
                              <FormModal table="class" type="delete" id={item.id}/>
                         )}

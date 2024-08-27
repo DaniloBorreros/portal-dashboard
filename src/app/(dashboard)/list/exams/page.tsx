@@ -77,7 +77,7 @@ const ExamListPage = () => {
                                 <Image src="/sort.png" alt="" width={14} height={14} />
                             </button>
                             {role === "admin" &&
-                            <FormModal table="exam" type="delete"/>
+                            <FormModal table="exam" type="create"/>
                             }
                             
                         </div>

@@ -1,4 +1,5 @@
 import Pagination from "@/components/Pagination"
+import FormModal from "@/components/FormModal"
 import Table from "@/components/Table"
 import TableSearch from "@/components/TableSearch"
 import { assignmentsData,role,  } from "@/lib/data"
@@ -41,25 +42,19 @@ const columns = [
 ]
 
 const AssigmentListPage = () => {
-    const renderRow = (items:Assigments)=> (
-        <tr key={items.id} className="border-b border-gray-200 even:bg-slate-50 text-sm hover:bg-lamaPurpleLight">
+    const renderRow = (item:Assigments)=> (
+        <tr key={item.id} className="border-b border-gray-200 even:bg-slate-50 text-sm hover:bg-lamaPurpleLight">
             <td className="flex items-center gap-4 p-4">
-            {items.subject}
+            {item.subject}
             </td>
-            <td className="hidden md:table-cell">{items.class}</td>
-            <td className="hidden md:table-cell">{items.teacher}</td>
-            <td className="hidden md:table-cell">{items.dueDate}</td>
+            <td className="hidden md:table-cell">{item.class}</td>
+            <td className="hidden md:table-cell">{item.teacher}</td>
+            <td className="hidden md:table-cell">{item.dueDate}</td>
             <td>
                 <div className='flex items-center gap-2'>
-                        <Link href={'/list/teachers/${items.id}'}>
-                            <button className="w-7 h-7 flex items-center justify-center rounded-full bg-lamaSky">
-                                    <Image src="/edit.png" alt="" width={16} height={16}/>
-                            </button>
-                        </Link>
+                <FormModal table="assignment" type="update" data={item}/>
                         {role === "admin" && (
-                            <button className="w-7 h-7 flex items-center justify-center rounded-full bg-lamaPurple">
-                                    <Image src="/delete.png" alt="" width={16} height={16}/>
-                            </button>
+                        <FormModal table="assignment" type="delete" id={item.id}/>
                         )}
                 </div>
             </td>
@@ -81,9 +76,12 @@ const AssigmentListPage = () => {
                             <button className="w-8 h-8 flex items-center justify-center rounded-full bg-lamaYellow">
                                 <Image src="/sort.png" alt="" width={14} height={14} />
                             </button>
-                            {role === "admin" &&<button className="w-8 h-8 flex items-center justify-center rounded-full bg-lamaYellow">
+                            {/* {role === "admin" &&<button className="w-8 h-8 flex items-center justify-center rounded-full bg-lamaYellow">
                                 <Image src="/plus.png" alt="" width={14} height={14} />
-                            </button>}
+                            </button>} */}
+                            {role === "admin" &&
+                            <FormModal table="assignment" type="create"/>
+                            }
                             
                         </div>
                 </div>

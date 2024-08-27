@@ -53,7 +53,7 @@ const SingleStudentPage = () => {
         <div className="bg-white p-4 rounded-md flex gap-4 w-full md:w-[48%] xl:w-[45%] 2xl:w-[48%]">
             <Image src="/singleBranch.png" alt='' width={24} height={24} className="w-6 h-6" />
             <div className="">
-                <h1 className="text-xl font-semibold">2nd Year</h1>
+                <h1 className="text-xl font-semibold">4th Year</h1>
                 <span className="text-sm text-gray-400">College</span>
             </div>
         </div>

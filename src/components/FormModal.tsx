@@ -3,12 +3,30 @@ import Image from 'next/image';
 import React, { useState } from 'react'
 import TeacherForm from './forms/TeacherForm';
 import StudentForm from './forms/StudentForm';
+import ParentForm from './forms/ParentForm';
+import SubjectForm from './forms/SubjectForm';
+import ClassesForm from './forms/ClassesForm';
+import ExamForm from './forms/ExamForm';
+import AssignmentForm from './forms/AssignmentForm';
+import LessonForm from './forms/LessonForm';
+import ResultForm from './forms/ResultForm';
+import EventForm from './forms/EventForm';
+import AnnouncementForm from './forms/AnnouncementForm';
 
 const forms: {
   [key:string] : (type: "create" | "update", data?: any ) => JSX.Element;
 } = {
   teacher: (type, data) => <TeacherForm type={type} data={data} />,
-  student: (type, data) => <StudentForm type={type} data={data} />
+  student: (type, data) => <StudentForm type={type} data={data} />,
+  parent: (type, data) => <ParentForm type={type} data={data} />,
+  subject: (type, data) => <SubjectForm type={type} data={data} />, 
+  class: (type, data) => <ClassesForm type={type} data={data} />,
+  exam: (type, data) => <ExamForm type={type} data={data} />,
+  assignment: (type, data) => <AssignmentForm type={type} data={data} />,
+  lesson: (type, data) => <LessonForm type={type} data={data} />,
+  result: (type, data) => <ResultForm type={type} data={data} />,
+  event : (type, data) => <EventForm type={type} data={data} />,
+  announcement : (type, data) => <AnnouncementForm type={type} data={data} />
 }
 
 const FormModal = ({table, type, data, id}:{
