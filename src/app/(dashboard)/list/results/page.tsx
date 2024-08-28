@@ -53,6 +53,7 @@ const columns = [
     {
         header:"Actions",
         accessor:"actions",
+        className:role === "student" ? "hidden" : ""
     },    
     
 ]
@@ -83,7 +84,9 @@ const ResultListPage = () => {
                                     <Image src="/delete.png" alt="" width={16} height={16}/>
                             </button>
                         )} */}
+                        {role === "admin" && (
                         <FormModal table="result" type="update" data={item}/>
+                        )}
                         {role === "admin" && (
                         <FormModal table="result" type="delete" id={item.id}/>
                         )}

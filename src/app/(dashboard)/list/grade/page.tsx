@@ -23,6 +23,7 @@ const columns = [
     {
         header:"Course Title",
         accessor:"courseTitle",
+        className: "hidden md:table-cell"
     },  
     {
         header:"Credit Unit",
@@ -32,7 +33,7 @@ const columns = [
     {
         header:"Final Grade",
         accessor:"finalGrade",
-        className: "hidden md:table-cell"
+        
     },
     {
         header:"Teacher",
@@ -56,7 +57,7 @@ const GradePage = () => {
             </td>
             <td className="hidden md:table-cell">{item.courseTitle}</td>
             <td className="hidden md:table-cell">{item.creditUnit}</td>
-            <td className="hidden md:table-cell">{item.finalGrade}</td>
+            <td >{item.finalGrade}</td>
             <td className="hidden md:table-cell">{item.teacher}</td>
             <td>
             </td>
@@ -95,3 +96,4 @@ const GradePage = () => {
 }
 
 export default GradePage
+

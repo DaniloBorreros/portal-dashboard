@@ -5,7 +5,7 @@ import Table from '@/components/Table';
 import { checklistData } from '@/lib/data';
 
 const Checklist = () => {
-  const [selectedYear, setSelectedYear] = useState<string>(''); // Type added to useState
+  const [selectedYear, setSelectedYear] = useState<string>('First Year'); // Type added to useState
 
   const handleButtonClick = (year: string) => {
     setSelectedYear(year);

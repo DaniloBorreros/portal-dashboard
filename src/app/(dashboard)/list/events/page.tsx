@@ -43,6 +43,8 @@ const columns = [
     {
         header:"Actions",
         accessor:"actions",
+        className:role === "student" ? "hidden" : ""
+
     },    
     
 ]
@@ -71,7 +73,9 @@ const EventListPage = () => {
                         )} */}
 
                          {/* <Link href={'/list/teachers/${items.id}'}> */}
+                         {role === "admin" && (
                          <FormModal table="event" type="update" data={items}/>
+                        )}
                         {/* </Link> */}
                         {role === "admin" && (
                              <FormModal table="event" type="delete" id={items.id}/>

@@ -37,6 +37,7 @@ const columns = [
     {
         header:"Actions",
         accessor:"actions",
+        className:role === "student" ? "hidden" : ""
     },    
     
 ]
@@ -52,7 +53,9 @@ const ExamListPage = () => {
             <td className="hidden md:table-cell">{item.date}</td>
             <td>
                 <div className='flex items-center gap-2'>
+                {role === "admin" && (
                         <FormModal table="exam" type="update" data={item}/>
+                    )}
                         {role === "admin" && (
                         <FormModal table="exam" type="delete" id={item.id}/>
                         )}
