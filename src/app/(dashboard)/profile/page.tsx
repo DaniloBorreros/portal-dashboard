@@ -17,7 +17,7 @@ const Profilepage = () => {
           {/* TOP */}
           <div className="flex flex-col lg:flex-row gap-4">
           {/* USER INFO CARD */}
-          {/* <div className="bg-lamaSky py-6 px-4 rounded-md flex-1 flex gap-4"> */}
+          {/* <div className="bg-lamaSky py-6 px-4 rounded-md flex-1 flex gap-4"> *./}
             {/* <div className="w-1/3">
             <Image src="https://images.pexels.com/photos/5414817/pexels-photo-5414817.jpeg?auto=compress&cs=tinysrgb&w=1200" alt='PhotoInfo' width={144} height={144} className="w-36 h-36 rounded-full object-cover"/>
             </div>
@@ -46,15 +46,14 @@ const Profilepage = () => {
             <div className="flex flex-col lg:flex-row gap-4">
             <div className="flex flex-col lg:flex-row gap-4">
       <UserInfoCard
-        key={studentsData[0].id}
-        name={studentsData[0].name}
-        email={studentsData[0].email}
-        imageUrl={studentsData[0].photo}
-        phone={studentsData[0].phone}
-        grade={studentsData[0].grade}
-        studentClass={studentsData[0].class}
-        address={studentsData[0].address}
-      /> 
+                  key={studentsData[0].id}
+                  name={studentsData[0].name}
+                  email={studentsData[0].email}
+                  imageUrl={studentsData[0].photo}
+                  phone={studentsData[0].phone}
+                  grade={studentsData[0].grade}
+                  studentClass={studentsData[0].class}
+                  address={studentsData[0].address} bio={''}      /> 
     </div> 
     </div>
           {/* </div> */}
