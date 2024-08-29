@@ -1,0 +1,63 @@
+// schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+}
+
+model Student {
+  id            Int      @id @default(autoincrement())
+  studentNumber String   @unique
+  firstName     String
+  middleName    String?
+  lastName      String
+  birthday      DateTime
+  sex           String
+  religion      String?
+  civilStatus   String
+  address       String
+  guardian      String
+  contactNumber String
+  course        String
+  section       String
+
+  grades        Grade[]  @relation("Grade")  // Relation field to connect with the Grade model
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@map("students")
+}
+
+
+model Grade {
+  id           Int      @id @default(autoincrement())
+  studentId    Int
+  studentNumber String   // Redundant field for easier querying
+  lastName      String
+  firstName     String
+  middleInit    String?
+  subjectCode   String
+  units         Int
+  courseTitle   String
+  grade         Float
+  reExam        Float?   // Optional
+  remarks       String?
+  faculty       String
+
+  Student       Student  @relation("Grade", fields: [studentId], references: [id])
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@map("grades")
+}
+
+
+
+
