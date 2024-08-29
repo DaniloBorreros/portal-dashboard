@@ -1069,8 +1069,10 @@ export const gradeData = [
     courseTitle: "Calculus",
     creditUnit: 3,
     finalGrade: 2.50,
+    completion: "-",
     teacher: "John Doe",
-    academicYear: "2024-2025"
+    academicYear: "2024-2025",
+    
   },
   {
     id: 2,
@@ -1079,6 +1081,7 @@ export const gradeData = [
     creditUnit: 3,
     finalGrade: 2.25,
     teacher: "Jane Doe",
+    completion: "-",
     academicYear: "2023-2024"
   },
   {
@@ -1088,6 +1091,7 @@ export const gradeData = [
     creditUnit: 3,
     finalGrade: 2.00,
     teacher: "John Doe",
+    completion: "-",
     academicYear: "2023-2024"
   },
   {
@@ -1097,6 +1101,7 @@ export const gradeData = [
     creditUnit: 3,
     finalGrade: 1.00,
     teacher: "Jane Doe",
+    completion: "-",
     academicYear: "2022-2023"
   },
   {
@@ -1106,6 +1111,7 @@ export const gradeData = [
     creditUnit: 3,
     finalGrade: 1.25,
     teacher: "John Doe",
+    completion: "-",
     academicYear: "2022-2023"
   },
   {
@@ -1115,6 +1121,7 @@ export const gradeData = [
     creditUnit: 3,
     finalGrade: 1.25,
     teacher: "John Doe",
+    completion: "-",
     academicYear: "2022-2023"
   },
 ];
@@ -1127,6 +1134,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "First Semester",
     yearLevel: "First Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
   {
     id: 2,
@@ -1135,6 +1146,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "First Semester",
     yearLevel: "First Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
   {
     id: 3,
@@ -1143,6 +1158,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "First Semester",
     yearLevel: "First Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
   {
     id: 4,
@@ -1151,6 +1170,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "First Semester",
     yearLevel: "First Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
   {
     id: 5,
@@ -1159,6 +1182,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "First Semester",
     yearLevel: "First Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
   {
     id: 6,
@@ -1167,6 +1194,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "First Semester",
     yearLevel: "First Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
   {
     id: 7,
@@ -1175,6 +1206,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "First Semester",
     yearLevel: "First Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
   {
     id: 8,
@@ -1183,6 +1218,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "Second Semester",
     yearLevel: "First Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
   {
     id: 9,
@@ -1191,6 +1230,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "Second Semester",
     yearLevel: "First Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
   {
     id: 10,
@@ -1199,6 +1242,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "Second Semester",
     yearLevel: "First Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
   {
     id: 11,
@@ -1207,6 +1254,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "Second Semester",
     yearLevel: "First Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
   {
     id: 12,
@@ -1215,6 +1266,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "Second Semester",
     yearLevel: "First Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
   {
     id: 13,
@@ -1223,6 +1278,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "Second Semester",
     yearLevel: "First Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
   {
     id: 14,
@@ -1231,6 +1290,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "Second Semester",
     yearLevel: "First Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
   {
     id: 30,
@@ -1239,6 +1302,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "First Semester",
     yearLevel: "Second Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
   {
     id: 31,
@@ -1247,6 +1314,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "First Semester",
     yearLevel: "Second Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
   {
     id: 32,
@@ -1255,6 +1326,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "First Semester",
     yearLevel: "Second Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
   {
     id: 33,
@@ -1263,6 +1338,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "First Semester",
     yearLevel: "Second Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
   {
     id: 34,
@@ -1271,6 +1350,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "First Semester",
     yearLevel: "Second Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
   {
     id: 35,
@@ -1279,6 +1362,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "First Semester",
     yearLevel: "Second Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
   {
     id: 36,
@@ -1287,6 +1374,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "First Semester",
     yearLevel: "Second Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
   {
     id: 37,
@@ -1295,6 +1386,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "Second Semester",
     yearLevel: "Second Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
   {
     id: 38,
@@ -1303,6 +1398,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "Second Semester",
     yearLevel: "Second Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
   {
     id: 39,
@@ -1311,6 +1410,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "Second Semester",
     yearLevel: "Second Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
   {
     id: 40,
@@ -1319,6 +1422,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "Second Semester",
     yearLevel: "Second Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
   {
     id: 41,
@@ -1327,6 +1434,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "Second Semester",
     yearLevel: "Second Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
   {
     id: 42,
@@ -1335,6 +1446,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "Second Semester",
     yearLevel: "Second Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
   {
     id: 43,
@@ -1343,6 +1458,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "Second Semester",
     yearLevel: "Second Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
   {
     id: 44,
@@ -1351,6 +1470,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "First Semester",
     yearLevel: "Fourth Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
   {
     id: 45,
@@ -1359,6 +1482,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "First Semester",
     yearLevel: "Fourth Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
   {
     id: 46,
@@ -1367,6 +1494,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "First Semester",
     yearLevel: "Fourth Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
   {
     id: 47,
@@ -1375,6 +1506,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "First Semester",
     yearLevel: "Fourth Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
   {
     id: 48,
@@ -1383,6 +1518,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "First Semester",
     yearLevel: "Fourth Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
   {
     id: 49,
@@ -1391,6 +1530,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "First Semester",
     yearLevel: "Fourth Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
   {
     id: 50,
@@ -1399,6 +1542,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "First Semester",
     yearLevel: "Fourth Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
   {
     id: 51,
@@ -1407,6 +1554,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "Second Semester",
     yearLevel: "Fourth Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
   {
     id: 52,
@@ -1415,6 +1566,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "Second Semester",
     yearLevel: "Fourth Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
   {
     id: 53,
@@ -1423,6 +1578,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "Second Semester",
     yearLevel: "Fourth Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
   {
     id: 54,
@@ -1431,6 +1590,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "Second Semester",
     yearLevel: "Fourth Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
   {
     id: 55,
@@ -1439,6 +1602,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "Second Semester",
     yearLevel: "Fourth Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
   {
     id: 56,
@@ -1447,6 +1614,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "Second Semester",
     yearLevel: "Fourth Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
   {
     id: 57,
@@ -1455,6 +1626,10 @@ export const checklistData = [
     creditUnit: 3,
     semester: "Second Semester",
     yearLevel: "Fourth Year",
+    preRequisite: "-",
+    grade: "-",
+    completion: "-",
+    remarks: "-",
   },
 ];
 
@@ -1474,5 +1649,22 @@ export const UserInfo = [
     cvsuEmail: "johndoe@cvsub.edu.ph",
     temporaryPassword: "P@ssw0rd"
   
+  }
+]
+
+export const announcementsData1 = [
+  {
+    id: 1,
+    title: "Announcement 1",
+    class: "Class 1",
+    date: "January 1, 2023",
+    datas: "Ako si Jelixces Cajontoy, From BSCS 4th year",
+  },
+  {
+    id: 2,
+    title: "Announcement 2",
+    class: "Class 1",
+    date: "January 1, 2023",
+    datas: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, qui nobis rem delectus iste possimus",
   }
 ]

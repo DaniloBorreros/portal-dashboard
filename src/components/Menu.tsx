@@ -6,7 +6,13 @@ const menuItems = [
         icon: "/home.png",
         label: "Home",
         href: "/",
-        visible: ["admin", "teacher", "student", "parent"],
+        visible: ["admin", "teacher", "parent"],
+      },
+      {
+        icon: "/home.png",
+        label: "Home",
+        href: "/student",
+        visible: ["student"],
       },
       {
         icon: "/teacher.png",
@@ -33,6 +39,12 @@ const menuItems = [
         visible: ["admin"],
       },
       {
+        icon: "/subject.png",
+        label: "Enrolled Subjects",
+        href: "/list/enrolledsubjects",
+        visible: ["student"],
+      },
+      {
         icon: "/class.png",
         label: "Classes",
         href: "/list/classes",
@@ -48,24 +60,24 @@ const menuItems = [
         icon: "/exam.png",
         label: "Exams",
         href: "/list/exams",
-        visible: ["admin", "teacher", "student", "parent"],
+        visible: ["admin", "teacher",  "parent"],
       },
       {
         icon: "/assignment.png",
         label: "Assignments",
         href: "/list/assignments",
-        visible: ["admin", "teacher", "student", "parent"],
+        visible: ["admin", "teacher",  "parent"],
       },
       {
         icon: "/result.png",
         label: "Results",
         href: "/list/results",
-        visible: ["admin", "teacher", "student", "parent"],
+        visible: ["admin", "teacher",  "parent"],
       },
       {
         icon: "/attendance.png",
-        label: "Attendance",
-        href: "/list/attendance",
+        label: "Pre-Registration",
+        href: "/list/prereg",
         visible: ["admin", "teacher", "student", "parent"],
       },
       {
@@ -106,7 +118,7 @@ const menuItems = [
       {
         icon: "/setting.png",
         label: "Settings",
-        href: "/settings",
+        href: "/list/settings",
         visible: ["admin", "teacher", "student", "parent"],
       },
       {

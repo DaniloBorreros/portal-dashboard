@@ -11,35 +11,45 @@ type Grade = {
     courseTitle: string;
     creditUnit:number;
     finalGrade:number;
+    completion: string;
     teacher:string;
     academicYear: string;
+    
 }
 
 const columns = [
     {
         header:"Course Code", 
-        accessor:"courseCode"
+        accessor:"courseCode",
+        className: "text-center"
     },
     {
         header:"Course Title",
         accessor:"courseTitle",
-        className: "hidden md:table-cell"
+        className: "hidden md:table-cell text-center"
     },  
     {
         header:"Credit Unit",
         accessor:"creditUnit",
-        className: "hidden md:table-cell"
+        className: "hidden md:table-cell text-center"
     },
     {
         header:"Final Grade",
         accessor:"finalGrade",
+        className: "text-center"
         
     },
     {
+        header:"Completion",
+        accessor:"completion",
+        className: "hidden md:table-cell text-center"
+    }, 
+    {
         header:"Teacher",
         accessor:"teacher",
-        className: "hidden md:table-cell"
-    },   
+        className: "hidden md:table-cell text-center"
+    },
+       
     
 ]
 
@@ -52,13 +62,15 @@ const GradePage = () => {
 
     const renderRow = (item:Grade)=> (
         <tr key={item.id} className="border-b border-gray-200 even:bg-slate-50 text-sm hover:bg-lamaPurpleLight">
-            <td className="flex items-center gap-4 p-4">
+            <td className="gap-4 p-4 text-center">
             {item.courseCode}
             </td>
-            <td className="hidden md:table-cell">{item.courseTitle}</td>
-            <td className="hidden md:table-cell">{item.creditUnit}</td>
-            <td >{item.finalGrade}</td>
-            <td className="hidden md:table-cell">{item.teacher}</td>
+            <td className="hidden md:table-cell text-center">{item.courseTitle}</td>
+            
+            <td className="hidden md:table-cell text-center">{item.creditUnit}</td>
+            <td className='text-center'>{item.finalGrade}</td>
+            <td className="hidden md:table-cell text-center">{item.completion}</td>
+            <td className="hidden md:table-cell text-center">{item.teacher}</td>
             <td>
             </td>
         </tr>
