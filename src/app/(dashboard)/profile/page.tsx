@@ -1,7 +1,7 @@
 
 import Announcements from '@/components/Announcements'
-import BigCalendar from '@/components/BigCalendar'
 import UserInfoCard from '@/components/UserInfoCard'
+import UserInfo from '@/components/UserInfo'
 import { studentsData, subjectsData } from '@/lib/data'
 import Image from 'next/image'
 
@@ -91,9 +91,8 @@ const Profilepage = () => {
           </div>
           </div>
           {/* BOTTOM */}
-          <div className="mt-4 bg-white rounded-md p-4 h-[800px]">
-            <h1>Student Schedule</h1>
-            <BigCalendar />
+          <div className="mt-4 bg-white rounded-md p-4 wrap gap-4">
+            <UserInfo />
           </div>
           </div>
           {/* RIGHT */}

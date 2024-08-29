@@ -1457,3 +1457,22 @@ export const checklistData = [
     yearLevel: "Fourth Year",
   },
 ];
+
+export const UserInfo = [
+  {
+    id: 1,
+    fullName: "John Doe",
+    birthDate: "January 1, 1990",
+    sex: "Male",
+    religion: "Roman Catholic",
+    civilStatus: "Single",
+    address: "123 Main St, Anytown USA",
+    guardian: "Jane Doe",
+    contactNumber: "123-456-7890",
+    course: "BSIT",
+    studentNumber: "2019-001",
+    cvsuEmail: "johndoe@cvsub.edu.ph",
+    temporaryPassword: "P@ssw0rd"
+  
+  }
+]

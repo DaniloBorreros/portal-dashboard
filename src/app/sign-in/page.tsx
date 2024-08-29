@@ -39,7 +39,7 @@ const LoginPage = () => {
       
         <form onSubmit={handleSubmit} className="max-w-md mx-auto">
         <div className="text-center mb-10">
-          <h1 className="text-6xl font-bold text-blue-700">Student Portal</h1>
+          <h1 className="text-5xl font-bold text-blue-700">Student Portal</h1>
           <hr className="border-1 border-black" />
         </div>
           <h1 className="text-3xl font-bold text-left mb-4">Login</h1>

@@ -4,7 +4,8 @@ const nextConfig = {
         remotePatterns: [
             {hostname:"images.pexels.com"}
         ],
-    }
+    },
+    // basePath: '/app',
 };
 
 export default nextConfig;
