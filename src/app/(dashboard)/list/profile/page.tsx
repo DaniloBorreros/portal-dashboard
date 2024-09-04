@@ -2,7 +2,7 @@
 import Announcements from '@/components/Announcements'
 import UserInfoCard from '@/components/UserInfoCard'
 import UserInfo from '@/components/UserInfo'
-import { studentsData, subjectsData } from '@/lib/data'
+import { role, studentsData, subjectsData } from '@/lib/data'
 import Image from 'next/image'
 
 import React from 'react'
@@ -11,6 +11,9 @@ import React from 'react'
 const Profilepage = () => {
 
     return (
+      <>
+      {role === "student" && (
+      <>
         <div className="flex-1 p-4 flex flex-col gap-4 xl:flex-row">
           {/* LEFT */}
           <div className="w-full xl:w-2/3">
@@ -115,6 +118,18 @@ const Profilepage = () => {
           
           
         </div>
+        </>
+        )}
+        {role === "admin" && (
+        <>
+        <div className='bg-white p-4 rounded-md flex-1 m-4 mt-0 flex justify-between items-center'>
+
+          </div>
+
+        </>
+        )}
+        </>
+      
       )
     }
     

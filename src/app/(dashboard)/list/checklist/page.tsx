@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Table from '@/components/Table';
-import { checklistData } from '@/lib/data';
+import { checklistData, role } from '@/lib/data';
 
 const Checklist = () => {
   const [selectedYear, setSelectedYear] = useState<string>('First Year'); // Type added to useState
@@ -26,6 +26,8 @@ const Checklist = () => {
     checklistData.filter(item => item.yearLevel === selectedYear && item.semester === semester);
 
   return (
+    <>
+    {role === "student" && (
     <>
       <div className='bg-white p-4 rounded-md flex-1 m-4 mt-0'>
         <div className="flex items-center justify-between">
@@ -91,6 +93,18 @@ const Checklist = () => {
             )}
           />
         </div>
+      )}
+      </>
+      )}
+      {role === "admin" && (
+      <>
+      <div className=' bg-white p-4 rounded-md flex-1 m-4 mt-0'>
+        <h1 className='text-lg font-semibold'>Check List</h1>
+        
+
+      </div>
+      
+      </>
       )}
     </>
   );

@@ -3,7 +3,9 @@
 import React, {useState} from 'react'
 import { headers } from "next/headers"
 import Table from '@/components/Table';
-import { gradeData } from '@/lib/data';
+import { gradeData, role } from '@/lib/data';
+import FormModal from '@/components/FormModal';
+import Link from 'next/link';
 
 type Grade = {
     id:number;
@@ -76,6 +78,9 @@ const GradePage = () => {
         </tr>
                 );
   return (
+    <>
+    {role === "student" && (
+    <>
     <div className='bg-white p-4 rounded-md flex-1 m-4 mt-0'>
         <div className="flex items-center justify-between">
         <h1 className="hidden md:block text-lg font-semibold">Grades</h1>
@@ -103,6 +108,64 @@ const GradePage = () => {
             </p>
         </div>
     </div>
+    </>
+    )}
+    {role === "admin" && (
+    <>
+    <>
+    <div className='bg-white p-4 rounded-md flex-1 m-4 mt-0 flex justify-between items-center'>
+        <h1 className="text-lg font-semibold">Upload Grades</h1>
+
+        <FormModal type='create' table='grades'/>
+        
+    </div>
+    </>
+    <>
+    <div className='bg-white p-4 rounded-md flex-1 m-4 mt-0 flex justify-between items-center'>
+    <Table columns={[
+        {
+            header: "Student Number",
+            accessor: "studentNumber",
+            className: "text-center",
+          },
+          {
+            header: "Name",
+            accessor: "name",
+            className: "text-center",
+          },
+          {
+            header: "Course",
+            accessor: "course",
+            className: "text-center",
+          },
+          
+          {
+            header: "View All Grades",
+            accessor: "actions",
+            className: "text-center",
+          }
+        ]} renderRow={(row) => (
+          <tr key={row.studentNumber} className="border-b border-gray-200 even:bg-slate-50 text-sm hover:bg-lamaPurpleLight">
+            <td className="p-4">{row.studentNumber}</td>
+            <td className="p-4">{row.name}</td>
+            <td className="p-4">{row.course}</td>
+            <td className="p-4">
+              <Link href={`/dashboard/grades/${row.studentNumber}`}>
+                <a className="text-blue-600 hover:text-blue-900">View All Grades</a>
+              </Link>
+            </td>
+          </tr>
+        )} data={JSON.parse(localStorage.getItem('grades') || '[]')}/>
+        </div>
+    </>
+
+    </>
+    )}
+
+    </>
+    
+    
+
 
   )
 }
