@@ -5,7 +5,7 @@ const menuItems = [
       {
         icon: "/home.png",
         label: "Home",
-        href: "/",
+        href: "/admin",
         visible: ["admin", "teacher", "parent"],
       },
       {
@@ -112,7 +112,7 @@ const menuItems = [
       {
         icon: "/profile.png",
         label: "Profile",
-        href: "/profile",
+        href: "/list/profile",
         visible: ["admin", "teacher", "student", "parent"],
       },
       {
