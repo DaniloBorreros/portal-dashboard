@@ -108,7 +108,7 @@ const menuItems = [
         icon: "/assignment.png",
         label: "Checklist",
         href: "/list/checklist",
-        visible: ["student", "admin"],
+        visible: ["student"],
       },
       {
         icon: "/announcement.png",

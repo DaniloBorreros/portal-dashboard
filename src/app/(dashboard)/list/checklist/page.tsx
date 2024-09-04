@@ -27,7 +27,6 @@ const Checklist = () => {
 
   return (
     <>
-    {role === "student" && (
     <>
       <div className='bg-white p-4 rounded-md flex-1 m-4 mt-0'>
         <div className="flex items-center justify-between">
@@ -75,6 +74,7 @@ const Checklist = () => {
       </div>
 
       {selectedYear && (
+        <>
         <div className='bg-white p-4 rounded-md flex-1 m-4 mt-0'>
           <p className="text-lg font-semibold">Second Semester</p>
           <Table
@@ -92,20 +92,11 @@ const Checklist = () => {
               </tr>
             )}
           />
+          
         </div>
+        </>
       )}
       </>
-      )}
-      {role === "admin" && (
-      <>
-      <div className=' bg-white p-4 rounded-md flex-1 m-4 mt-0'>
-        <h1 className='text-lg font-semibold'>Check List</h1>
-        
-
-      </div>
-      
-      </>
-      )}
     </>
   );
 };
