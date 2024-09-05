@@ -2,14 +2,27 @@
 
 import Image from 'next/image'
 import { useState } from 'react'
+import { doCredentialLogin } from './actions'
+import { useRouter } from 'next/navigation'
 
 const LoginPage = () => {
-  const [username, setUsername] = useState('')
+  const router = useRouter()
+  const [studentNumber, setstudentNumber] = useState('')
   const [password, setPassword] = useState('')
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    console.log({ username, password })
+  async function handleSubmit( event : any ) {
+    event.preventDefault();
+    try {
+      const formData = new FormData(event.currentTarget);
+      const response = await doCredentialLogin(formData);
+      if (!!response.error) {
+        
+      } else {
+        console.log(response)
+      }
+    } catch (e) {
+      console.error(e)
+    }
   }
 
   return (
@@ -44,13 +57,13 @@ const LoginPage = () => {
           <h1 className="text-3xl font-bold text-left mb-4 text-gray-700">Login</h1>
           <div className="mb-4">
             <label htmlFor="username" className="block mb-2">
-              Username
+              Student Number
             </label>
             <input
               type="text"
-              id="username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              id="studentNumber"
+              value={studentNumber}
+              onChange={(e) => setstudentNumber(e.target.value)}
               className="w-full px-4 py-2 border-2 border-gray-300 rounded-md"
             />
           </div>

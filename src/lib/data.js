@@ -128,7 +128,7 @@ export const teachersData = [
 export const studentsData = [
   {
     id: 1,
-    studentId: "1234567890",
+    studentId: "19010825",
     name: "John Doe",
     email: "john@doe.com",
     photo:
@@ -1668,3 +1668,8 @@ export const announcementsData1 = [
     datas: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, qui nobis rem delectus iste possimus",
   }
 ]
+
+export const getUserbystudentId = studentId => {
+  const found = studentsData.find(user => user.studentId === studentId);
+  return found;
+} 

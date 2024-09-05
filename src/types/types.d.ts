@@ -19,7 +19,7 @@ export interface Student {
 
 export interface Grade {
   id: number;
-  studentId: number;
+  studentId: any;
   studentNumber: string;
   surName: string;
   firstName: string;
