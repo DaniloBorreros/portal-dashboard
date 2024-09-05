@@ -2,10 +2,15 @@
 import Announcements from '@/components/Announcements'
 import UserInfoCard from '@/components/UserInfoCard'
 import UserInfo from '@/components/UserInfo'
-import { role, studentsData, subjectsData } from '@/lib/data'
+import { adminInfo, role, studentsData, subjectsData } from '@/_lib/data'
 import Image from 'next/image'
 
 import React from 'react'
+import AdminInfocard from '@/components/AdminInfocard'
+import EventCalendar from '@/components/EventCalendar'
+import FinanceChart from '@/components/FinanceChart'
+import CountChart from '@/components/CountChart'
+import TimeDisplay from '@/components/TimeDisplay'
 
 
 const Profilepage = () => {
@@ -122,18 +127,43 @@ const Profilepage = () => {
         )}
         {role === "admin" && (
         <>
-        <div className='bg-white p-4 rounded-md flex-1 m-4 mt-0 flex justify-between items-center'>
-
+        <div className="flex-1 p-4 flex flex-col gap-4 xl:flex-row">
+          {/* LEFT */}
+          <div className="w-full xl:w-2/3">
+          {/* TOP */}
+          <div className="flex flex-col lg:flex-row gap-4 w-full">
+            <div className="flex flex-col lg:flex-row gap-4 w-full">
+              <AdminInfocard
+                  key={adminInfo[0].id}
+                  name={adminInfo[0].name}
+                  email={adminInfo[0].email}
+                  imageUrl={adminInfo[0].img}
+                     /> 
+          </div> 
+                  
+          
+            <div className="flex flex-wrap w-full">
+                <TimeDisplay />
+            </div>
+            
           </div>
-
+          {/* BOTTOM */}
+          <div className="mt-4 bg-white rounded-md p-4 wrap gap-4">
+            <UserInfo />
+          </div>
+          </div>
+          {/* RIGHT */}
+          <div className="w-full xl:w-1/3 flex flex-col gap-4 rounded-md bg-white p-4 shadow-md">
+          <EventCalendar />
+            <div>
+          </div>
+          </div>
+        </div>
         </>
         )}
         </>
       
       )
     }
-    
-
-
 export default Profilepage
 

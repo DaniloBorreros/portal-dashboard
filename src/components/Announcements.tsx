@@ -1,5 +1,5 @@
 import React from 'react'
-import {  announcementsData1 } from "@/lib/data"
+import {  announcementsData1 } from "@/_lib/data"
 
 type Announcement = {
     id:number;

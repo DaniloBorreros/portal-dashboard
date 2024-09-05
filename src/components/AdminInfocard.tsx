@@ -1,0 +1,48 @@
+import React from 'react';
+import Image from 'next/image';
+import { role } from '@/_lib/data';
+
+type AdminInfocardProps = {
+  name: string;
+  email: string;
+  imageUrl: string;
+};
+
+const AdminInfocard: React.FC<AdminInfocardProps> = ({
+  name,
+  email,
+  imageUrl,
+}) => {
+  return (
+    <>
+     {role === "admin" && (
+    <>
+    <div className="bg-lamaSky py-6 px-4 rounded-md flex-1 flex gap-4 ">
+      <div className="w-2/3 relative">
+        <Image
+          src={imageUrl}
+          alt={`${name}'s photo`}
+          width={144}
+          height={144}
+          className="w-36 h-36 rounded-full object-cover"
+        />
+      </div>
+      <div className="w-2/3 flex flex-col  gap-4">
+        <h1 className="text-xl font-semibold">{name}</h1>
+        <div className="flex items-center  flex-wrap text-xs font-medium">
+          <div className="w-full flex items-center gap-2">
+            <Image src="/mail.png" alt="Email" width={14} height={14} />
+            <span>{email}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    </>
+    )}
+    
+    </>
+  );
+};
+
+export default AdminInfocard;
+

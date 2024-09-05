@@ -1,12 +1,13 @@
 import React from 'react';
 import Image from 'next/image';
+import { role } from '@/_lib/data';
 
 type UserInfoCardProps = {
   name: string;
   email: string;
   imageUrl: string;
   phone: string;
-  grade: number;
+  grade: string;
   studentClass: string;
   address: string;
   bio: string;
@@ -22,6 +23,9 @@ const UserInfoCard: React.FC<UserInfoCardProps> = ({
   address,
 }) => {
   return (
+    <>
+     {role === "student" && (
+    <>
     <div className="bg-lamaSky py-6 px-4 rounded-md flex-1 flex gap-4 ">
       <div className="w-2/3 relative">
         <Image
@@ -48,9 +52,13 @@ const UserInfoCard: React.FC<UserInfoCardProps> = ({
       </div>
       <div className="w-1/3 flex flex-col gap-4">
       <p className="text-sm text-gray-500">Class: {studentClass}</p>
-      <p className="text-sm text-gray-500">Grade: {grade}</p>
+      <p className="text-sm text-gray-500">Year Level: {grade}</p>
       </div>
     </div>
+    </>
+    )}
+    
+    </>
   );
 };
 
