@@ -58,6 +58,7 @@ const LoginPage = () => {
           <div className="mb-4">
             <label htmlFor="username" className="block mb-2">
               Student Number
+            Student Number
             </label>
             <input
               type="text"
@@ -112,5 +113,4 @@ const LoginPage = () => {
     </div>
   )
 }
-
 export default LoginPage

@@ -1,7 +1,10 @@
-import { UserInfo } from "@/lib/data";
+import { adminInfo, role, UserInfo } from "@/_lib/data";
 
 const Userinfo = () => {
     return (
+      <>
+      {role === "student" && (
+      <>
       <div className='p-4 rounded-md flex flex-col gap-4'>
         <div className="flex flex-col gap-2">
           <div className="flex items-center gap-2">
@@ -87,6 +90,74 @@ const Userinfo = () => {
           </div>
 
       </div>
+      </>
+      )}
+      {role === "admin" && (
+      <>
+      <div className="flex flex-col gap-2">
+          <div className="flex items-center gap-2">
+          <p className="text-xl  w-1/3"></p>
+          <p className="text-sm  w-2/3 mb-4">Personal Information </p>
+          </div>
+          </div>
+        <div className="flex flex-col gap-2">
+          <div className="flex items-center gap-2">
+            <p className="w-1/3 ">Full Name:</p>
+            <input type="text" className="bg-gray-100 rounded-md p-2 w-2/3 text-gray-500" value={adminInfo[0].name}readOnly/>
+          </div>
+          <div className="flex items-center gap-2">
+            <p className="w-1/3 ">Birth Date:</p>
+            <input type="text" className="bg-gray-100 rounded-md p-2 w-2/3 text-gray-500" value={adminInfo[0].birthDate}readOnly/>
+          </div>
+          <div className="flex items-center gap-2">
+            <p className="w-1/3 ">Sex:</p>
+            <input type="text" className="bg-gray-100 rounded-md p-2 w-2/3 text-gray-500" value={adminInfo[0].sex}readOnly/>
+          </div>
+          <div className="flex items-center gap-2">
+            <p className="w-1/3 ">Religion:</p>
+            <input type="text" className="bg-gray-100 rounded-md p-2 w-2/3 text-gray-500" value={adminInfo[0].religion}readOnly/>
+          </div>
+          <div className="flex items-center gap-2">
+            <p className="w-1/3 ">Civil Status:</p>
+            <input type="text" className="bg-gray-100 rounded-md p-2 w-2/3 text-gray-500" value={adminInfo[0].civilStatus}readOnly/>
+          </div>
+        </div>
+      <div className="flex flex-col gap-2">
+          <div className="flex items-center gap-2">
+          <p className="text-xl  w-1/3"></p>
+          <p className="text-sm  w-2/3 mt-4 mb-4">Contact Details </p>
+          </div>
+          </div>
+        <div className="flex flex-col gap-2">
+          <div className="flex items-center gap-2">
+            <p className="w-1/3 ">Address:</p>
+            <input type="text" className="bg-gray-100 rounded-md p-2 w-2/3 text-gray-500" value={UserInfo[0].address}readOnly/>
+          </div>
+          <div className="flex items-center gap-2">
+            <p className="w-1/3 ">Contact Number:</p>
+            <input type="text" className="bg-gray-100 rounded-md p-2 w-2/3 text-gray-500" value={UserInfo[0].contactNumber}readOnly/>
+          </div>
+          </div>
+      <div className="flex flex-col gap-2">
+          <div className="flex items-center gap-2">
+          <p className="text-xl  w-1/3"></p>
+          <p className="text-sm  w-2/3 mt-4 mb-4">CvSU Google Account </p>
+          </div>
+          </div>
+          <div className="flex flex-col gap-2">
+          <div className="flex items-center gap-2">
+            <p className="w-1/3 ">CvSU Email:</p>
+            <input type="text" className="bg-gray-100 rounded-md p-2 w-2/3 text-gray-500" value={adminInfo[0].email} readOnly/>
+          </div>
+          <div className="flex items-center gap-2">
+            <p className="w-1/3 ">Temporary Password:</p>
+            <input type="text" className="bg-gray-100 rounded-md p-2 w-2/3 text-gray-500" value={adminInfo[0].password} readOnly />
+          </div>
+          </div>
+      </>
+      )}
+
+      </>
           )
 }
 

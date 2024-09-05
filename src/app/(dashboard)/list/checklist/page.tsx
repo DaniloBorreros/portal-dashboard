@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Table from '@/components/Table';
-import { checklistData, role } from '@/lib/data';
+import { checklistData, role } from '@/_lib/data';
 
 const Checklist = () => {
   const [selectedYear, setSelectedYear] = useState<string>('First Year'); // Type added to useState

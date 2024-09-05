@@ -24,21 +24,22 @@ const columns = [
     {
         header:"Class",
         accessor:"class",
+        className: "hidden md:table-cell text-center"
     },  
     {
         header:"Date",
         accessor:"date",
-        className: "hidden md:table-cell"
+        className: "hidden md:table-cell text-center"
     },
     {
         header:"Start Time",
         accessor:"startTime",
-        className: "hidden md:table-cell"
+        className: "hidden md:table-cell text-center"
     },
     {
         header:"End Time",
         accessor:"endTime",
-        className: "hidden md:table-cell"
+        className: "hidden md:table-cell text-center"
     },
     {
         header:"Actions",
@@ -55,10 +56,10 @@ const EventListPage = () => {
             <td className="flex items-center gap-4 p-4">
             {items.title}
             </td>
-            <td className="hidden md:table-cell">{items.class}</td>
-            <td >{items.date}</td>
-            <td>{items.startTime}</td>
-            <td className="hidden md:table-cell">{items.endTime}</td>
+            <td className="hidden md:table-cell text-center ">{items.class}</td>
+            <td className= "text-center">{items.date}</td>
+            <td className= "text-center">{items.startTime}</td>
+            <td className="hidden md:table-cell text-center">{items.endTime}</td>
             <td>
                 <div className='flex items-center gap-2'>
                         {/* <Link href={'/list/teachers/${items.id}'}>

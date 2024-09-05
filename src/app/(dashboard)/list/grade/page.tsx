@@ -2,7 +2,7 @@
 
 import React, {useState} from 'react'
 import Table from '@/components/Table';
-import { gradeData, role } from '@/lib/data';
+import { gradeData, role } from '@/_lib/data';
 import FormModal from '@/components/FormModal';
 import Link from 'next/link';
 

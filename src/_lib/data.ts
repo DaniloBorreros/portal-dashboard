@@ -134,8 +134,8 @@ export const studentsData = [
     photo:
       "https://images.pexels.com/photos/2888150/pexels-photo-2888150.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    grade: 5,
-    class: "1B",
+    grade: "4th",
+    class: "BSCS 4-1",
     address: "123 Main St, Anytown, USA",
   },
   {
@@ -146,8 +146,8 @@ export const studentsData = [
     photo:
       "https://images.pexels.com/photos/936126/pexels-photo-936126.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    grade: 5,
-    class: "5A",
+    grade: "4th",
+    class: "BSCS 4-1",
     address: "123 Main St, Anytown, USA",
   },
   {
@@ -158,8 +158,8 @@ export const studentsData = [
     photo:
       "https://images.pexels.com/photos/428328/pexels-photo-428328.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    grade: 5,
-    class: "5A",
+    grade: "4th",
+    class: "BSCS 4-1",
     address: "123 Main St, Anytown, USA",
   },
   {
@@ -170,8 +170,8 @@ export const studentsData = [
     photo:
       "https://images.pexels.com/photos/1187765/pexels-photo-1187765.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    grade: 5,
-    class: "5A",
+    grade: "4th",
+    class: "BSCS 4-1",
     address: "123 Main St, Anytown, USA",
   },
   {
@@ -182,8 +182,8 @@ export const studentsData = [
     photo:
       "https://images.pexels.com/photos/1102341/pexels-photo-1102341.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    grade: 5,
-    class: "5A",
+    grade: "4th",
+    class: "BSCS 4-1",
     address: "123 Main St, Anytown, USA",
   },
   {
@@ -194,8 +194,8 @@ export const studentsData = [
     photo:
       "https://images.pexels.com/photos/712513/pexels-photo-712513.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    grade: 5,
-    class: "5A",
+    grade: "4th",
+    class: "BSCS 4-1",
     address: "123 Main St, Anytown, USA",
   },
   {
@@ -206,8 +206,8 @@ export const studentsData = [
     photo:
       "https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    grade: 5,
-    class: "5A",
+    grade: "4th",
+    class: "BSCS 4-1",
     address: "123 Main St, Anytown, USA",
   },
   {
@@ -218,8 +218,8 @@ export const studentsData = [
     photo:
       "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    grade: 5,
-    class: "5A",
+    grade: "4th",
+    class: "BSCS 4-1",
     address: "123 Main St, Anytown, USA",
   },
   {
@@ -230,8 +230,8 @@ export const studentsData = [
     photo:
       "https://images.pexels.com/photos/842980/pexels-photo-842980.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    grade: 5,
-    class: "5A",
+    grade: "4th",
+    class: "BSCS 4-1",
     address: "123 Main St, Anytown, USA",
   },
   {
@@ -242,8 +242,8 @@ export const studentsData = [
     photo:
       "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    grade: 5,
-    class: "5A",
+    grade: "4th",
+    class: "BSCS 4-1",
     address: "123 Main St, Anytown, USA",
   },
 ];
@@ -410,7 +410,7 @@ export const classesData = [
     id: 4,
     name: "4B",
     capacity: 18,
-    grade: 4,
+    grade: "4th",
     supervisor: "Aaron Collins",
   },
   {
@@ -1667,4 +1667,20 @@ export const announcementsData1 = [
     date: "January 1, 2023",
     datas: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, qui nobis rem delectus iste possimus",
   }
+]
+
+export const adminInfo = [
+  {
+    id: 1,
+    name: "Danilo Borreros",
+    email: "danilob@gmail.com",
+    birthDate: "January 1, 1990",
+    sex: "Male",
+    religion: "Roman Catholic",
+    civilStatus: "Single",
+    password: "Admin1234",
+    role: "admin",
+    img: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=1200"
+  },
+
 ]

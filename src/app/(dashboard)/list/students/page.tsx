@@ -24,22 +24,22 @@ const columns = [
     {
         header:"Student ID",
         accessor:"studentId",
-        className:"hidden md:table-cell"
+        className:"hidden md:table-cell text-center"
     },
     {
-        header:"Grade",
+        header:"Year Level",
         accessor:"grade",
-        className:"hidden md:table-cell"
+        className:"hidden md:table-cell text-center"
     },     
     {
         header:"Phone",
         accessor:"phone",
-        className:"hidden lg:table-cell"
+        className:"hidden lg:table-cell text-center"
     }, 
     {
         header:"Address",
         accessor:"address",
-        className:"hidden lg:table-cell"
+        className:"hidden lg:table-cell text-center"
     }, 
     {
         header:"Actions",
@@ -60,10 +60,10 @@ const StudentListPage = () => {
                     <p className="text-xs text-gray-500">{item?.class}</p>
                 </div>
             </td>
-            <td className="hidden md:table-cell">{item.studentId}</td>
-            <td className="hidden md:table-cell">{item.grade}</td>
-            <td className="hidden md:table-cell">{item.phone}</td>
-            <td className="hidden md:table-cell">{item.address}</td>
+            <td className="hidden md:table-cell text-center">{item.studentId}</td>
+            <td className="hidden md:table-cell text-center">{item.grade}</td>
+            <td className="hidden md:table-cell text-center">{item.phone}</td>
+            <td className="hidden md:table-cell text-center">{item.address}</td>
             <td>
                 <div className='flex items-center gap-2'>
                         <Link href={'/list/students/${items.id}'}>
