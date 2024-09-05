@@ -1,12 +1,8 @@
 import FormModal from "@/components/FormModal"
-<<<<<<< HEAD
 import Pagination from "@/components/Pagination"
 import Table from "@/components/Table"
 import TableSearch from "@/components/TableSearch"
-import { eventsData,role, lessonsData, announcementsData } from "@/_lib/data"
-=======
 import { eventsData,role, lessonsData, announcementsData1 } from "@/lib/data"
->>>>>>> starter
 import { headers } from "next/headers"
 import Image from "next/image"
 import Link from "next/link"

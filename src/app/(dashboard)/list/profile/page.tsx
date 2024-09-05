@@ -1,12 +1,8 @@
 
 import Announcements from '@/components/Announcements'
 import UserInfoCard from '@/components/UserInfoCard'
-<<<<<<< HEAD:src/app/(dashboard)/profile/page.tsx
-import { studentsData, subjectsData } from '@/_lib/data'
-=======
 import UserInfo from '@/components/UserInfo'
 import { role, studentsData, subjectsData } from '@/lib/data'
->>>>>>> starter:src/app/(dashboard)/list/profile/page.tsx
 import Image from 'next/image'
 
 import React from 'react'
