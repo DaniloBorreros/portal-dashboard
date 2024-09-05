@@ -14,7 +14,7 @@ const LoginPage = () => {
 
   return (
     <div className="flex items-center justify-center h-screen">
-      <div className="flex-1 hidden md:flex items-center justify-center bg-gradient-to-b from-blue-700 to-yellow-300 h-full">
+      <div className="flex-1 hidden md:flex items-center justify-center bg-gradient-to-b from-yellow-300 to-blue-700 h-full">
         {/* <Image
           src="/csuLogo.png"
           alt="Logo"
@@ -39,8 +39,7 @@ const LoginPage = () => {
       
         <form onSubmit={handleSubmit} className="max-w-md mx-auto">
         <div className="text-center mb-10">
-          <h1 className="text-6xl font-bold text-green-600">Student Portal</h1>
-          <hr className="border-1 border-black" />
+          <h1 className="text-4xl font-bold text-blue-700">Student Portal</h1>
         </div>
           <h1 className="text-3xl font-bold text-left mb-4">Login</h1>
           <div className="mb-4">

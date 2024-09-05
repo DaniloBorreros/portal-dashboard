@@ -1,6 +1,6 @@
 "use client";
 
-import { zodResolver } from "@hookform/resolvers/zod";
+import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import InputField from "../InputFields";
@@ -10,6 +10,7 @@ const schema = z.object({
 title: z.string().min(1, { message: "Title is required!" }),
 class: z.string().min(1, { message: "Class Name is required!" }),
 date: z.string().min(1, { message: "Date is required!" }),
+datas: z.string().min(1, {message: "Required!"})
 });
 
 type Inputs = z.infer<typeof schema>;
@@ -62,6 +63,13 @@ const AnnouncementForm = ({
           register={register}
           error={errors?.date}
           
+        />
+        <InputField 
+          label="Description"
+          name="datas"
+          defaultValue={data?.datas}
+          register={register}
+          error={errors?.datas}
         />
       </div>
       <button className="bg-blue-400 text-white p-2 rounded-md ">

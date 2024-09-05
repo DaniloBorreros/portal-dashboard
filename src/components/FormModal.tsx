@@ -12,6 +12,7 @@ import LessonForm from './forms/LessonForm';
 import ResultForm from './forms/ResultForm';
 import EventForm from './forms/EventForm';
 import AnnouncementForm from './forms/AnnouncementForm';
+import GradesForm from './forms/GradesForm';
 
 const forms: {
   [key:string] : (type: "create" | "update", data?: any ) => JSX.Element;
@@ -26,7 +27,8 @@ const forms: {
   lesson: (type, data) => <LessonForm type={type} data={data} />,
   result: (type, data) => <ResultForm type={type} data={data} />,
   event : (type, data) => <EventForm type={type} data={data} />,
-  announcement : (type, data) => <AnnouncementForm type={type} data={data} />
+  announcement : (type, data) => <AnnouncementForm type={type} data={data} />,
+  grades: (type, data) => <GradesForm onSubmit={() => console.log('form submitted')} type={type} data={data} />,
 }
 
 const FormModal = ({table, type, data, id}:{
@@ -43,6 +45,7 @@ const FormModal = ({table, type, data, id}:{
     | "attendance"
     | "event"
     | "announcement"
+    | "grades"
     type: "create" | "update" | "delete";
     data?:any;
     id?: number;

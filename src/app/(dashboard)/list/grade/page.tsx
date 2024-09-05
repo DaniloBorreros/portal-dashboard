@@ -2,7 +2,13 @@
 
 import React, {useState} from 'react'
 import Table from '@/components/Table';
+<<<<<<< HEAD
 import { gradeData } from '@/_lib/data';
+=======
+import { gradeData, role } from '@/lib/data';
+import FormModal from '@/components/FormModal';
+import Link from 'next/link';
+>>>>>>> starter
 
 type Grade = {
     id:number;
@@ -10,35 +16,45 @@ type Grade = {
     courseTitle: string;
     creditUnit:number;
     finalGrade:number;
+    completion: string;
     teacher:string;
     academicYear: string;
+    
 }
 
 const columns = [
     {
         header:"Course Code", 
-        accessor:"courseCode"
+        accessor:"courseCode",
+        className: "text-center"
     },
     {
         header:"Course Title",
         accessor:"courseTitle",
-        className: "hidden md:table-cell"
+        className: "hidden md:table-cell text-center"
     },  
     {
         header:"Credit Unit",
         accessor:"creditUnit",
-        className: "hidden md:table-cell"
+        className: "hidden md:table-cell text-center"
     },
     {
         header:"Final Grade",
         accessor:"finalGrade",
+        className: "text-center"
         
     },
     {
+        header:"Completion",
+        accessor:"completion",
+        className: "hidden md:table-cell text-center"
+    }, 
+    {
         header:"Teacher",
         accessor:"teacher",
-        className: "hidden md:table-cell"
-    },   
+        className: "hidden md:table-cell text-center"
+    },
+       
     
 ]
 
@@ -51,18 +67,23 @@ const GradePage = () => {
 
     const renderRow = (item:Grade)=> (
         <tr key={item.id} className="border-b border-gray-200 even:bg-slate-50 text-sm hover:bg-lamaPurpleLight">
-            <td className="flex items-center gap-4 p-4">
+            <td className="gap-4 p-4 text-center">
             {item.courseCode}
             </td>
-            <td className="hidden md:table-cell">{item.courseTitle}</td>
-            <td className="hidden md:table-cell">{item.creditUnit}</td>
-            <td >{item.finalGrade}</td>
-            <td className="hidden md:table-cell">{item.teacher}</td>
+            <td className="hidden md:table-cell text-center">{item.courseTitle}</td>
+            
+            <td className="hidden md:table-cell text-center">{item.creditUnit}</td>
+            <td className='text-center'>{item.finalGrade}</td>
+            <td className="hidden md:table-cell text-center">{item.completion}</td>
+            <td className="hidden md:table-cell text-center">{item.teacher}</td>
             <td>
             </td>
         </tr>
                 );
   return (
+    <>
+    {role === "student" && (
+    <>
     <div className='bg-white p-4 rounded-md flex-1 m-4 mt-0'>
         <div className="flex items-center justify-between">
         <h1 className="hidden md:block text-lg font-semibold">Grades</h1>
@@ -90,6 +111,64 @@ const GradePage = () => {
             </p>
         </div>
     </div>
+    </>
+    )}
+    {role === "admin" && (
+    <>
+    <>
+    <div className='bg-white p-4 rounded-md flex-1 m-4 mt-0 flex justify-between items-center'>
+        <h1 className="text-lg font-semibold">Upload Grades</h1>
+
+        <FormModal type='create' table='grades'/>
+        
+    </div>
+    </>
+    <>
+    <div className='bg-white p-4 rounded-md flex-1 m-4 mt-0 flex justify-between items-center'>
+    <Table columns={[
+        {
+            header: "Student Number",
+            accessor: "studentNumber",
+            className: "text-center",
+          },
+          {
+            header: "Name",
+            accessor: "name",
+            className: "text-center",
+          },
+          {
+            header: "Course",
+            accessor: "course",
+            className: "text-center",
+          },
+          
+          {
+            header: "View All Grades",
+            accessor: "actions",
+            className: "text-center",
+          }
+        ]} renderRow={(row) => (
+          <tr key={row.studentNumber} className="border-b border-gray-200 even:bg-slate-50 text-sm hover:bg-lamaPurpleLight">
+            <td className="p-4">{row.studentNumber}</td>
+            <td className="p-4">{row.name}</td>
+            <td className="p-4">{row.course}</td>
+            <td className="p-4">
+              <Link href={`/dashboard/grades/${row.studentNumber}`}>
+                <a className="text-blue-600 hover:text-blue-900">View All Grades</a>
+              </Link>
+            </td>
+          </tr>
+        )} data={JSON.parse(localStorage.getItem('grades') || '[]')}/>
+        </div>
+    </>
+
+    </>
+    )}
+
+    </>
+    
+    
+
 
   )
 }

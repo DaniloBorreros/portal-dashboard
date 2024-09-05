@@ -1,8 +1,12 @@
 
 import Announcements from '@/components/Announcements'
-import BigCalendar from '@/components/BigCalendar'
 import UserInfoCard from '@/components/UserInfoCard'
+<<<<<<< HEAD:src/app/(dashboard)/profile/page.tsx
 import { studentsData, subjectsData } from '@/_lib/data'
+=======
+import UserInfo from '@/components/UserInfo'
+import { role, studentsData, subjectsData } from '@/lib/data'
+>>>>>>> starter:src/app/(dashboard)/list/profile/page.tsx
 import Image from 'next/image'
 
 import React from 'react'
@@ -11,6 +15,9 @@ import React from 'react'
 const Profilepage = () => {
 
     return (
+      <>
+      {role === "student" && (
+      <>
         <div className="flex-1 p-4 flex flex-col gap-4 xl:flex-row">
           {/* LEFT */}
           <div className="w-full xl:w-2/3">
@@ -91,9 +98,8 @@ const Profilepage = () => {
           </div>
           </div>
           {/* BOTTOM */}
-          <div className="mt-4 bg-white rounded-md p-4 h-[800px]">
-            <h1>Student Schedule</h1>
-            <BigCalendar />
+          <div className="mt-4 bg-white rounded-md p-4 wrap gap-4">
+            <UserInfo />
           </div>
           </div>
           {/* RIGHT */}
@@ -116,6 +122,18 @@ const Profilepage = () => {
           
           
         </div>
+        </>
+        )}
+        {role === "admin" && (
+        <>
+        <div className='bg-white p-4 rounded-md flex-1 m-4 mt-0 flex justify-between items-center'>
+
+          </div>
+
+        </>
+        )}
+        </>
+      
       )
     }
     

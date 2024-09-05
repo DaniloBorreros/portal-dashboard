@@ -2,7 +2,11 @@
 
 import React, { useState } from 'react';
 import Table from '@/components/Table';
+<<<<<<< HEAD
 import { checklistData } from '@/_lib/data';
+=======
+import { checklistData, role } from '@/lib/data';
+>>>>>>> starter
 
 const Checklist = () => {
   const [selectedYear, setSelectedYear] = useState<string>('First Year'); // Type added to useState
@@ -12,15 +16,21 @@ const Checklist = () => {
   };
 
   const columns = [
-    { header: "Course Code", accessor: "courseCode", className: "w-1/3 h-12" },
-    { header: "Course Title", accessor: "courseTitle", className: "w-1/3 h-12" },
-    { header: "Credit Unit", accessor: "creditUnit", className: "w-1/3 h-12" }
+    { header: "Course Code", accessor: "courseCode", className: "w-1/7 h-12 text-center" },
+    { header: "Course Title", accessor: "courseTitle", className: "w-1/7 h-12 text-center" },
+    { header: "Unit", accessor: "creditUnit", className: "w-1/7 h-12 text-center" },
+    { header: "Pre-requisite", accessor: "preRequisite", className: "w-1/7 h-12 text-center" },
+    { header: "Grade", accessor: "grade", className: "w-1/7 h-12 text-center" },
+    { header: "Completion", accessor: "completion", className: "w-1/7 h-12 text-center" },
+    { header: "Remarks", accessor: "remarks", className: "w-1/7 h-12 text-center" }
+
   ];
 
   const filteredData = (semester: string) => 
     checklistData.filter(item => item.yearLevel === selectedYear && item.semester === semester);
 
   return (
+    <>
     <>
       <div className='bg-white p-4 rounded-md flex-1 m-4 mt-0'>
         <div className="flex items-center justify-between">
@@ -53,9 +63,13 @@ const Checklist = () => {
               columns={columns}
               renderRow={(item) => (
                 <tr key={item.id} className="border-b border-gray-200 even:bg-slate-50 text-sm hover:bg-lamaPurpleLight h-12">
-                  <td className="w-1/3">{item.courseCode}</td>
-                  <td className="w-1/3">{item.courseTitle}</td>
-                  <td className="w-1/3">{item.creditUnit}</td>
+                  <td className="w-1/7 text-center">{item.courseCode}</td>
+                  <td className="w-1/7 text-center">{item.courseTitle}</td>
+                  <td className="w-1/7 text-center">{item.creditUnit}</td>
+                  <td className="w-1/7 text-center ">{item.preRequisite}</td>
+                  <td className="w-1/7 text-center">{item.grade}</td>
+                  <td className="w-1/7 text-center">{item.completion}</td>
+                  <td className="w-1/7 text-center">{item.remarks}</td>
                 </tr>
               )}
             />
@@ -64,6 +78,7 @@ const Checklist = () => {
       </div>
 
       {selectedYear && (
+        <>
         <div className='bg-white p-4 rounded-md flex-1 m-4 mt-0'>
           <p className="text-lg font-semibold">Second Semester</p>
           <Table
@@ -71,14 +86,21 @@ const Checklist = () => {
             columns={columns}
             renderRow={(item) => (
               <tr key={item.id} className="border-b border-gray-200 even:bg-slate-50 text-sm hover:bg-lamaPurpleLight h-12">
-                <td className="w-1/3">{item.courseCode}</td>
-                <td className="w-1/3">{item.courseTitle}</td>
-                <td className="w-1/3">{item.creditUnit}</td>
+                <td className="w-1/7 text-center">{item.courseCode}</td>
+                  <td className="w-1/7 text-center">{item.courseTitle}</td>
+                  <td className="w-1/7 text-center">{item.creditUnit}</td>
+                  <td className="w-1/7 text-center ">{item.preRequisite}</td>
+                  <td className="w-1/7 text-center">{item.grade}</td>
+                  <td className="w-1/7 text-center">{item.completion}</td>
+                  <td className="w-1/7 text-center">{item.remarks}</td>
               </tr>
             )}
           />
+          
         </div>
+        </>
       )}
+      </>
     </>
   );
 };
