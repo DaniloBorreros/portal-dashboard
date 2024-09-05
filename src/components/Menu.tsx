@@ -119,7 +119,7 @@ const menuItems = [
   },
 ];
 
-import { role } from '@/lib/data';
+import { role } from '@/_lib/data';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'

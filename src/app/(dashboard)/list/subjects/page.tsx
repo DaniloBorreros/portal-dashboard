@@ -2,7 +2,7 @@ import FormModal from "@/components/FormModal"
 import Pagination from "@/components/Pagination"
 import Table from "@/components/Table"
 import TableSearch from "@/components/TableSearch"
-import { role, subjectsData } from "@/lib/data"
+import { role, subjectsData } from "@/_lib/data"
 import Image from "next/image"
 import Link from "next/link"
 type Subject = {

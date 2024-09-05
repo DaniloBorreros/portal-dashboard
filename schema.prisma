@@ -12,51 +12,40 @@ datasource db {
 
 model Student {
   id            Int      @id @default(autoincrement())
-  studentNumber String   @unique
+  email         String   @unique
   firstName     String
-  middleName    String?
+  middleInit    String?
   lastName      String
-  birthday      DateTime
-  sex           String
-  religion      String?
-  civilStatus   String
+  Suffix        String?
+  birthDate     DateTime
   address       String
-  guardian      String
-  contactNumber String
-  course        String
-  section       String
-
-  grades        Grade[]  @relation("Grade")  // Relation field to connect with the Grade model
-
+  phone         String?
+  password      String
+  studentNumber String   @unique
+  grades        Grade[]
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
-
-  @@map("students")
 }
-
 
 model Grade {
   id           Int      @id @default(autoincrement())
+  student      Student  @relation(fields: [studentId], references: [id])
   studentId    Int
-  studentNumber String   // Redundant field for easier querying
-  lastName      String
-  firstName     String
-  middleInit    String?
-  subjectCode   String
-  units         Int
-  courseTitle   String
-  grade         Float
-  reExam        Float?   // Optional
-  remarks       String?
-  faculty       String
-
-  Student       Student  @relation("Grade", fields: [studentId], references: [id])
-
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
-
-  @@map("grades")
+  studentNumber String
+  surName      String
+  firstName    String
+  middleInit   String
+  subjectCode  String
+  units        Float
+  courseTitle  String
+  grade        Float
+  reExam       Float?
+  remarks      String?
+  faculty      String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 }
+
 
 
 

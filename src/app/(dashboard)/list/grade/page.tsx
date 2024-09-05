@@ -1,9 +1,8 @@
 "use client"
 
 import React, {useState} from 'react'
-import { headers } from "next/headers"
 import Table from '@/components/Table';
-import { gradeData } from '@/lib/data';
+import { gradeData } from '@/_lib/data';
 
 type Grade = {
     id:number;

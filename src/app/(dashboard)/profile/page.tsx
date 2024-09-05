@@ -2,7 +2,7 @@
 import Announcements from '@/components/Announcements'
 import BigCalendar from '@/components/BigCalendar'
 import UserInfoCard from '@/components/UserInfoCard'
-import { studentsData, subjectsData } from '@/lib/data'
+import { studentsData, subjectsData } from '@/_lib/data'
 import Image from 'next/image'
 
 import React from 'react'
