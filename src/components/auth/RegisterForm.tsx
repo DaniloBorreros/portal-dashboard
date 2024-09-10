@@ -13,42 +13,44 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { LoginSchema } from "../../schemas";
+import { RegisterSchema } from "../../../schemas/index";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { FormError } from "@/components/FormError";
 import { FormSuccess } from "@/components/FormSuccess";
-import { login } from "../../actions/login";
 import { useTransition } from "react";
+import { register } from "../../../actions/register";
 
-const LoginPage = () => {
-
-  const [error, setError] = useState<string | undefined>("");
+const RegisterForm = () => {
+    const [error, setError] = useState<string | undefined>("");
   const [success, setSuccess] = useState<string | undefined>("");
 
   const [isPending, isTransition] = useTransition();
 
-  const form = useForm<z.infer<typeof LoginSchema>>({
-    resolver: zodResolver(LoginSchema),
+  const form = useForm<z.infer<typeof RegisterSchema>>({
+    resolver: zodResolver(RegisterSchema),
     defaultValues: {
       studentNum: "",
       password: "",
+      firstName: "",
+      middleName: "",
+      lastName: "",
+      email: "",
     },
   });
 
-  const onSubmit = (values: z.infer<typeof LoginSchema>) => {
+  const onSubmit = (values: z.infer<typeof RegisterSchema>) => {
     setError("");
     setSuccess("");
 
     startTransition(() => {
-      login(values)
+      register(values)
       .then((data) => {
         setError(data.error);
         setSuccess(data.success)
       })
     });
   };
-
   return (
     <div className="flex items-center justify-center h-screen">
       <div className="flex-1 hidden md:flex items-center justify-center bg-gradient-to-b from-yellow-300 to-blue-700 h-full">
@@ -88,8 +90,71 @@ const LoginPage = () => {
               </h1>
             </div>
             <h1 className="text-3xl font-bold text-left mb-4 text-gray-700">
-              Login
+              Register
             </h1>
+            <div className="mb-4">
+              <FormField
+                control={form.control}
+                name="firstName"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="block mb-2">First Name</FormLabel>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        disabled={isPending}
+                        className="w-full px-4 py-2 border-2 border-blue-700 rounded-md"
+                        placeholder="John"
+                        type="text"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <div className="mb-4">
+              <FormField
+                control={form.control}
+                name="middleName"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="block mb-2">Middle Name</FormLabel>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        disabled={isPending}
+                        className="w-full px-4 py-2 border-2 border-blue-700 rounded-md"
+                        placeholder="Cruz"
+                        type="text"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <div className="mb-4">
+              <FormField
+                control={form.control}
+                name="lastName"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="block mb-2">Last Name</FormLabel>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        disabled={isPending}
+                        className="w-full px-4 py-2 border-2 border-blue-700 rounded-md"
+                        placeholder="Martinez"
+                        type="text"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
             <div className="mb-4">
               <FormField
                 control={form.control}
@@ -132,16 +197,31 @@ const LoginPage = () => {
                 )}
               />
             </div>
-            <div className="flex items-center justify-between mb-4">
-              <div>
-                <input type="checkbox" id="remember-me" className="mr-2" />
-                <label htmlFor="remember-me" className="text-sm">
-                  Remember me
-                </label>
-              </div>
+            <div className="mb-4">
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="block mb-2">Email address</FormLabel>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        disabled={isPending}
+                        className="w-full px-4 py-2 border-2 border-blue-700 rounded-md"
+                        placeholder="sample@gmail.com"
+                        type="email"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <div className="flex items-center justify-center mb-4">
               <p className="text-sm text-right">
-                Dont have an account?
-                <a href="/register">&nbsp; Create Request</a>
+                Already have an account?
+                <a href="/">&nbsp; Login</a>
               </p>
             </div>
             <FormError message={error} />
@@ -151,12 +231,13 @@ const LoginPage = () => {
               className="w-full mt-4 px-6 py-5 hover:bg-blue-900 bg-blue-700 text-white rounded-md"
               disabled={isPending}
             >
-              Login
+              Create an account
             </Button>
           </form>
         </Form>
       </div>
     </div>
-  );
-};
-export default LoginPage;
+  )
+}
+
+export default RegisterForm
