@@ -53,7 +53,7 @@ const LoginPage = () => {
     <div className="flex items-center justify-center h-screen">
       <div className="flex-1 hidden md:flex items-center justify-center bg-gradient-to-b from-yellow-300 to-blue-700 h-full">
         {/* <Image
-          src="/csuLogo.png"
+          src="/csuLogo.pnggg"
           alt="Logo"
           width={300}
           height={300}
