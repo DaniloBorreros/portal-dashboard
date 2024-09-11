@@ -221,7 +221,7 @@ const RegisterForm = () => {
             <div className="flex items-center justify-center mb-4">
               <p className="text-sm text-right">
                 Already have an account?
-                <a href="/">&nbsp; Login</a>
+                <a href="/login">&nbsp; Login</a>
               </p>
             </div>
             <FormError message={error} />
