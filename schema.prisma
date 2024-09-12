@@ -10,6 +10,11 @@ datasource db {
   directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
 }
 
+enum UserRole {
+  ADMIN
+  USER
+}
+
 model User {
   id            String    @id @default(cuid())
   studentNum    String    @unique
@@ -20,6 +25,7 @@ model User {
   emailVerified DateTime? @map("email_verified")
   image         String?
   password      String
+  role          UserRole  @default(USER)
   accounts      Account[]
   sessions      Session[]
  
