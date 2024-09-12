@@ -10,8 +10,7 @@ export const publicRoutes = ["/"];
  * @type {string[]}
  */
 export const authRoutes = [
-    "/login",
-    "/register"
+    "/register",
 ]
 /**
  * THE PREFIX FOR API AUTHENTICATION ROUTES
