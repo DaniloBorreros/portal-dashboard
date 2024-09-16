@@ -6,6 +6,7 @@ import { gradeData, role } from '@/_lib/data';
 import FormModal from '@/components/FormModal';
 import Link from 'next/link';
 
+
 type Grade = {
     id:number;
     courseCode:string;
@@ -82,7 +83,11 @@ const GradePage = () => {
     <>
     <div className='bg-white p-4 rounded-md flex-1 m-4 mt-0'>
         <div className="flex items-center justify-between">
-        <h1 className="hidden md:block text-lg font-semibold">Grades</h1>
+        <h1 className="hidden md:block text-lg font-semibold">Grades </h1>
+        <Link href="/printgrades">
+            <img src="/print.png" alt="Print" className="inline-block w-5 h-5" />
+        </Link>
+
         </div>
         <div className="mt-4">
           <label htmlFor="grade" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Select Academic Year</label>
@@ -156,6 +161,7 @@ const GradePage = () => {
           </tr>
         )} data={JSON.parse(localStorage.getItem('grades') || '[]')}/>
         </div>
+        
     </>
 
     </>
