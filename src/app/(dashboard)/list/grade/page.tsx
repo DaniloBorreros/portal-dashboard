@@ -5,6 +5,7 @@ import Table from '@/components/Table';
 import { gradeData, role } from '@/_lib/data';
 import FormModal from '@/components/FormModal';
 import Link from 'next/link';
+import Image from 'next/image';
 
 
 type Grade = {
@@ -85,7 +86,7 @@ const GradePage = () => {
         <div className="flex items-center justify-between">
         <h1 className="hidden md:block text-lg font-semibold">Grades </h1>
         <Link href="/printgrades">
-            <img src="/print.png" alt="Print" className="inline-block w-5 h-5" />
+            <Image src="/print.png" alt="Print" className="inline-block w-5 h-5" width={5} height={5} />
         </Link>
 
         </div>

@@ -1,3 +1,5 @@
+import { auth, signOut } from "../../auth"
+
 const menuItems = [
   {
     title: "MENU",

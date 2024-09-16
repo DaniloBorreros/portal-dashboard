@@ -11,8 +11,8 @@ datasource db {
 }
 
 enum UserRole {
-  ADMIN
-  USER
+  student
+  admin
 }
 
 model User {
@@ -25,7 +25,7 @@ model User {
   emailVerified DateTime? @map("email_verified")
   image         String?
   password      String
-  role          UserRole  @default(USER)
+  role          UserRole  @default(student)
   accounts      Account[]
   sessions      Session[]
  
