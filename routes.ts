@@ -24,6 +24,6 @@ export const apiAuthPrefix = "/api/auth"
  * THE DEFAULT REDIRECT PATH AFTER LOGGING IN
  * @type {string[]}
  */
-export const DEFAULT_LOGIN_REDIRECT = "/settings"
+export const DEFAULT_LOGIN_REDIRECT = "/student"
 
 
