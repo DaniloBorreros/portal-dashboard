@@ -1,161 +1,132 @@
-// components/Printgrades.tsx
 'use client';
 
-import { CSchecklistData } from '@/_lib/data';
-import { useRouter } from 'next/navigation';
+import { CRIMchecklistData } from '@/_lib/data';
+import router from 'next/router';
 import React, { useEffect } from 'react';
 
-
 function PrintChecklist() {
-//   const router = useRouter();
 
-//   useEffect(() => {
-//     const handlePrint = () => {
-//       window.print();
+  useEffect(() => {
+    const handlePrint = () => {
+      window.print();
 
-//       // Add a listener to handle navigation after printing
-//       const handleAfterPrint = () => {
-//         router.back();
-//         window.removeEventListener('afterprint', handleAfterPrint); // Cleanup
-//       };
+      // Add a listener to handle navigation after printing
+      const handleAfterPrint = () => {
+        router.back();
+        window.removeEventListener('afterprint', handleAfterPrint); // Cleanup
+      };
 
-//       window.addEventListener('afterprint', handleAfterPrint);
-//     };
+      window.addEventListener('afterprint', handleAfterPrint);
+    };
 
-//     handlePrint();
-//   }, [router]);
+    handlePrint();
+  }, [router]);
+  // Function to check if there are any mid-year items for a given year level
+  const hasMidYear = (yearLevel: string) => {
+    return CRIMchecklistData.some(item => item.yearLevel === yearLevel && item.semester === 'Mid-year');
+  };
+
   return (
-    <div className=" pt-[10px]  h-[2,480px] w-[3,508px]">
-
-    {/* Headings */}
-      <div className="flex items-center mb-6 pl-[55px]">
-        <div className="ml-20">
-          <img src="/logo.png" alt="CSU Logo" width={50} height={50} />
-        </div>
-        <div className="text-center ml-[10px] items-center">
+    <div className="pt-[10px] h-[2,480px] w-[3,508px]">
+      {/* Headings */}
+      <div className="flex items-center mb-2 justify-center">
+        <img src="/logo.png" alt="CSU Logo" width={50} height={50} />
+        <div className="text-center ml-[10px]">
           <p className="text-[12px]">Republic of the Philippines</p>
           <h1 className="text-[12px] font-bold uppercase">Cavite State University</h1>
           <p className="text-[12px]">Bacoor City Campus</p>
-          <p className='text-sm'></p>
-          <p className="font-semibold text-[12px] uppercase">bachelor of science of computer science</p>
-          <h1 className="text-sm font-bold mt-4 uppercase">checklist of courses</h1>
+          <p className="font-semibold text-[12px] uppercase">Bachelor of Science in Computer Science</p>
+          <h1 className="text-sm font-bold uppercase">Checklist of Courses</h1>
         </div>
       </div>
-      {/* details */}
-      <div className="flex items-center mb-3 ">
-        <table className="w-full">
-          <tbody className="">
-            <tr>
-              <td className=" w-[40%] h-[1px] text-[10px]">Name of Student :</td>
-              <td className=" w-[60%] h-[1px] text-[10px]">Date of Admission : </td>
-            </tr>
-            <tr>
-              <td className=" w-[40%] h-[1px] text-[10px]">Student Number :</td>
-              <td className=" w-[60%] h-[1px] text-[10px]">Contact Number :</td>
-            </tr>
-            <tr>
-              <td className=" w-[40%] h-[1px] text-[10px]">Address :</td>
-              <td className=" w-[60%] h-[1px] text-[10px]">Name of Adviser :</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      {/* details */}
-      <table className="border-collapse">
-  <thead>
-    <tr>
-      <th className="border border-black w-[80px] h-[35px] text-center text-[10px] p-1">Course Code</th>
-      <th className="border border-black w-[690px] h-[35px] text-center text-[14px]">Course Title</th>
-      <th className="border border-black w-[100px]">
-        <div className="text-center text-[8px] h-[22.5px] mt-[-4px]">Credit Units</div>
-        <div className="border-t border-black flex">
-          <div className="border-r border-black w-full text-center text-[9px]">Lec</div>
-          <div className="border-l border-black w-full text-center text-[9px]">Lab</div>
-        </div>
-      </th>
-      <th className="border border-black w-[100px]">
-        <div className="text-center text-[8px] h-[22.5px] mt-[-4px]">Contact Hrs</div>
-        <div className="border-t border-black flex">
-          <div className="border-r border-black w-full text-center text-[9px]">Lec</div>
-          <div className="border-l border-black w-full text-center text-[9px]">Lab</div>
-        </div>
-      </th>
-      <th className="border border-black w-[250px] h-[35px] text-center text-[11px] p-0.5">Pre-Requisite</th>
-      <th className="border border-black w-[70px] h-[35px] text-center text-[10px] p-1">Semester/SY Taken</th>
-      <th className="border border-black w-[80px] h-[35px] text-center text-[10px] p-1">Final Grade</th>
-      <th className="border border-black w-[690px] h-[35px] text-center text-[14px]">Instructor</th>
-    </tr>
-    <tr>
-           <td className='h-[20px]'></td> 
-        </tr>
-  </thead>
-  <tbody className="pt-[10px">
-  {CSchecklistData .filter(item =>item.yearLevel === 'First Year' && item.semester === 'First Semester').map((item) => (
-        
-      <tr key={item.id}>
-        
-        <td className="border border-black text-center text-[8px] p-1">{item.courseCode}</td>
-        <td className="border border-black text-center text-[8px]">{item.courseTitle}</td>
-        <td className="border border-black text-center text-[8px]">
-          <div className="">{item.creditUnit}</div>
-        </td>
-        <td className="border border-black text-center text-[8px]">
-          <div className="h-[22.5px] mt-[-4px]"></div>
-        </td>
-        <td className="border border-black text-center text-[8px] p-0.5">{item.preRequisite}</td>
-        <td className="border border-black text-center text-[8px] p-1"></td>
-        <td className="border border-black text-center text-[8px] p-1">{item.grade}</td>
-        <td className="border border-black text-center text-[8px]"></td>
-      </tr>
-    ))}
-    <td className='h-[20px]'></td>
 
-{CSchecklistData .filter(item =>item.yearLevel === 'First Year' && item.semester === 'Second Semester').map((item) => (
-        
-        <tr key={item.id}>
-          
-          <td className="border border-black text-center text-[8px] p-1">{item.courseCode}</td>
-          <td className="border border-black text-center text-[8px]">{item.courseTitle}</td>
-          <td className="border border-black text-center text-[8px]">
-            <div className="">{item.creditUnit}</div>
-          </td>
-          <td className="border border-black text-center text-[8px]">
-            <div className="h-[22.5px] mt-[-4px]"></div>
-          </td>
-          <td className="border border-black text-center text-[8px] p-0.5">{item.preRequisite}</td>
-          <td className="border border-black text-center text-[8px] p-1"></td>
-          <td className="border border-black text-center text-[8px] p-1">{item.grade}</td>
-          <td className="border border-black text-center text-[8px]"></td>
-        </tr>
-      ))}
-      <td className='h-[20px]'></td>
-    
-      {CSchecklistData .filter(item =>item.yearLevel === 'Second Year' && item.semester === 'First Semester').map((item) => (
-        
-        <tr key={item.id}>
-          
-          <td className="border border-black text-center text-[8px] p-1">{item.courseCode}</td>
-          <td className="border border-black text-center text-[8px]">{item.courseTitle}</td>
-          <td className="border border-black text-center text-[8px]">
-            <div className="">{item.creditUnit}</div>
-          </td>
-          <td className="border border-black text-center text-[8px]">
-            <div className="h-[22.5px] mt-[-4px]"></div>
-          </td>
-          <td className="border border-black text-center text-[8px] p-0.5">{item.preRequisite}</td>
-          <td className="border border-black text-center text-[8px] p-1"></td>
-          <td className="border border-black text-center text-[8px] p-1">{item.grade}</td>
-          <td className="border border-black text-center text-[8px]"></td>
-        </tr>
-      ))}
-      <td className='h-[20px]'></td>
-  </tbody>
-</table>
+      {/* Student Info */}
+      <table className="w-full mb-3">
+        <tbody>
+          <tr><td className="text-[10px]">Name of Student :</td><td className="text-[10px]">Date of Admission :</td></tr>
+          <tr><td className="text-[10px]">Student Number :</td><td className="text-[10px]">Contact Number :</td></tr>
+          <tr><td className="text-[10px]">Address :</td><td className="text-[10px]">Name of Adviser :</td></tr>
+        </tbody>
+      </table>
 
+      {/* Courses Table */}
+      <table className="border-collapse w-full">
+        <thead>
+          <tr>
+            <th rowSpan={2} className="border border-black w-[80px] text-center text-[10px]">Course Code</th>
+            <th rowSpan={2} className="border border-black w-[900px] text-center text-[14px]">Course Title</th>
+            <th colSpan={2} className="border border-black text-center text-[10px]">Credit Unit</th>
+            <th colSpan={2} className="border border-black text-center text-[10px]">Contact Hrs</th>
+            <th rowSpan={2} className="border border-black w-[250px] text-center text-[11px]">Pre-Requisite</th>
+            <th rowSpan={2} className="border border-black w-[70px] text-center text-[10px]">SEMESTER / SY TAKEN</th>
+            <th rowSpan={2} className="border border-black w-[45px] text-center text-[10px]">Final Grade</th>
+            <th rowSpan={2} className="border border-black w-[500px] text-center text-[14px]">Instructor</th>
+          </tr>
+          <tr>
+            <th className="border border-black text-center text-[10px]">Lec</th>
+            <th className="border border-black text-center text-[10px]">Lab</th>
+            <th className="border border-black text-center text-[10px]">Lec</th>
+            <th className="border border-black text-center text-[10px]">Lab</th>
+          </tr>
+          <tr className=" text-center text-[10px] h-[20px]">
 
+          </tr>
+        </thead>
 
+        <tbody>
+          {/* Map data for each year and semester */}
+          {['First Year', 'Second Year', 'Third Year', 'Fourth Year'].map((yearLevel) => (
+            <>
+              <tr key={yearLevel}>
+                <td colSpan={10} className="text-center font-bold text-[10px] pt-[10px]">{yearLevel}</td>
+              </tr>
+              {['First Semester', 'Second Semester'].map((semester) => (
+                <React.Fragment key={semester}>
+                  <tr>
+                    <td colSpan={10} className="text-left text-[10px] p-2">{semester}</td>
+                  </tr>
+                  {CRIMchecklistData.filter(item => item.yearLevel === yearLevel && item.semester === semester).map(item => (
+                    <tr key={item.id}>
+                      <td className="border border-black text-center text-[8px]">{item.courseCode}</td>
+                      <td className="border border-black text-[8px]">{item.courseTitle}</td>
+                      <td className="border border-black text-center text-[8px]">{item.creditUnit}</td>
+                      <td className="border border-black text-center text-[8px]">{item.creditUnit}</td>
+                      <td className="border border-black text-center text-[8px]">{item.creditUnit}</td>
+                      <td className="border border-black text-center text-[8px]">{item.creditUnit}</td>
+                      <td className="border border-black text-center text-[8px]">{item.preRequisite}</td>
+                      <td className="border border-black text-center text-[8px]"></td>
+                      <td className="border border-black text-center text-[8px]">{item.grade}</td>
+                      <td className="border border-black text-center text-[8px]"></td>
+                    </tr>
+                  ))}
+                </React.Fragment>
+              ))}
+              {hasMidYear(yearLevel) && (
+                <>
+                  <tr>
+                    <td colSpan={10} className="text-left text-[10px] p-2">Mid-year</td>
+                  </tr>
+                  {CRIMchecklistData.filter(item => item.yearLevel === yearLevel && item.semester === 'Mid-year').map(item => (
+                    <tr key={item.id}>
+                      <td className="border border-black text-center text-[8px]">{item.courseCode}</td>
+                      <td className="border border-black text-[8px]">{item.courseTitle}</td>
+                      <td className="border border-black text-center text-[8px]">{item.creditUnit}</td>
+                      <td className="border border-black text-center text-[8px]">{item.creditUnit}</td>
+                      <td className="border border-black text-center text-[8px]">{item.creditUnit}</td>
+                      <td className="border border-black text-center text-[8px]">{item.creditUnit}</td>
+                      <td className="border border-black text-center text-[8px]">{item.preRequisite}</td>
+                      <td className="border border-black text-center text-[8px]"></td>
+                      <td className="border border-black text-center text-[8px]">{item.grade}</td>
+                      <td className="border border-black text-center text-[8px]"></td>
+                    </tr>
+                  ))}
+                </>
+              )}
+            </>
+          ))}
+        </tbody>
+      </table>
     </div>
-
   );
 }
 

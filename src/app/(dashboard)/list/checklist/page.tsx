@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Table from '@/components/Table';
 import { CSchecklistData } from '@/_lib/data';
+import Link from 'next/link';
 
 const Checklist = () => {
   const [selectedYear, setSelectedYear] = useState<string>('First Year');
@@ -34,6 +35,9 @@ const Checklist = () => {
       <div className='bg-white p-4 rounded-md flex-1 m-4 mt-0'>
         <div className="flex items-center justify-between">
           <h1 className="hidden md:block text-lg font-semibold">Check List</h1>
+          <Link href="/printChecklist">
+            <img src="/print.png" alt="Print" className="inline-block w-5 h-5" />
+        </Link>
         </div>
         <div className="mt-4 flex items-center gap-4">
           <span className="text-sm font-semibold">Year:</span>
