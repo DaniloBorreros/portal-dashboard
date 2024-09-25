@@ -1,103 +1,40 @@
-'use client'
+import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 
-import Image from 'next/image'
-import { useState } from 'react'
-
-const LoginPage = () => {
-  const [studentnumber, setstudentNumber] = useState('')
-  const [password, setPassword] = useState('')
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    console.log({ studentnumber, password })
-  }
-
+const Homepage = () => {
   return (
-    <div className="flex items-center justify-center h-screen">
-      <div className="flex-1 hidden md:flex items-center justify-center bg-gradient-to-b from-yellow-300 to-blue-700 h-full">
-        {/* <Image
-          src="/csuLogo.png"
-          alt="Logo"
-          width={300}
-          height={300}
-        /> */}
-        <div className="flex flex-col items-center mb-4">
+    <div className="bg-no-repeat bg-center bg-cover h-screen" style={{backgroundImage: 'url(/cvsu.png)', }}>
+      {/* Navbar */}
+      <nav className="flex items-center justify-between p-2 bg-green-700">
+        <div className="flex items-center pl-10">
           <Image
-            src="/csuLogo.png"
-            alt="CSU Logo"
-            width={300}
-            height={300}
-            className='mb-10'
+            src="/rays.png"
+            alt="Stingray Logo"
+            width={100}
+            height={100}
           />
-          <div className="flex flex-col items-center">
-          <h1 className="text-3xl font-bold text-white">CAVITE STATE UNIVERSITY</h1>
-          <p className="font-bold text-center text-white">BACOOR CITY CAMPUS</p>
-          </div>
         </div>
-      </div>
-      <div className="flex-1  bg-white">
-      
-        <form onSubmit={handleSubmit} className="max-w-md mx-auto">
-        <div className="text-center mb-10">
-          <h1 className="text-4xl font-bold text-blue-700">Student Portal</h1>
+        <div className="pr-10">
+          <Link href="/login" className="text-white text-sm font-semibold">
+              Log in
+          </Link>
         </div>
-          <h1 className="text-3xl font-bold text-left mb-4 text-gray-700">Login</h1>
-          <div className="mb-4">
-            <label htmlFor="username" className="block mb-2">
-            Student Number
-            </label>
-            <input
-              type="text"
-              id="username"
-              value={studentnumber}
-              onChange={(e) => setstudentNumber(e.target.value)}
-              className="w-full px-4 py-2 border-2 border-gray-300 rounded-md"
-            />
-          </div>
-          <div className="mb-4">
-            <label htmlFor="password" className="block mb-2">
-              Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-2 border-2 border-gray-300 rounded-md"
-            />
-          </div>
-          <div className="flex items-center justify-between mb-4">
-            <div>
-              <input
-                type="checkbox"
-                id="remember-me"
-                className="mr-2"
-              />
-              <label htmlFor="remember-me" className="text-sm">
-                Remember me
-              </label>
-            </div>
-            <p className="text-sm text-right">
-              Dont have an account? 
-              <a
-                href="/sign-up"
-                
-              >&nbsp;
-                Create Request
-              </a>
-            </p>
-          </div>
+      </nav>
 
-          
-          <button
-            type="submit"
-            className="w-full px-4 py-2 bg-blue-700 text-white rounded-md">
-            Login
-          </button>
-        </form>
+      {/* Main Content */}
+      <div className="flex flex-col items-center justify-center h-[calc(100vh-128px)]">
+        <Image
+          src="/portal1.png"
+          alt="Banner"
+          width={800}
+          height={800}
+          className="mt-10"
+        />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default LoginPage
+export default Homepage;
+
