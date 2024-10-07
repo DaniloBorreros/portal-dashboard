@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Table from '@/components/Table';
-import { CSchecklistData } from '@/_lib/data';
+import { CRIMchecklistData } from '@/_lib/data';
 import Link from 'next/link';
 
 const Checklist = () => {
@@ -23,7 +23,7 @@ const Checklist = () => {
   ];
 
   const filteredData = (semester: string) =>
-    CSchecklistData.filter(item => item.yearLevel === selectedYear && item.semester === semester);
+    CRIMchecklistData.filter(item => item.yearLevel === selectedYear && item.semester === semester);
 
   // Function to format prerequisites
   const formatPrerequisites = (prerequisites: string) => {

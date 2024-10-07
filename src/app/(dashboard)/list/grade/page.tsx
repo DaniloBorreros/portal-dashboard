@@ -133,31 +133,70 @@ const GradePage = () => {
             className: "text-center",
           },
           {
-            header: "Name",
-            accessor: "name",
+            header: "Surname",
+            accessor: "surname",
             className: "text-center",
           },
           {
-            header: "Course",
-            accessor: "course",
+            header: "Given Name",
+            accessor: "givenname",
             className: "text-center",
           },
           
           {
-            header: "View All Grades",
-            accessor: "actions",
+            header: "Middle Name",
+            accessor: "middlename",
+            className: "text-center",
+          },
+          {
+            header: "Subject Code",
+            accessor: "subjectCode",
+            className: "text-center",
+          },
+          {
+            header: "Units",
+            accessor: "units",
+            className: "text-center",
+          },
+          {
+            header: "Course Title",
+            accessor: "courseTitle",
+            className: "text-center",
+          },
+          {
+            header: "Grade",
+            accessor: "grade",
+            className: "text-center",
+          },
+          {
+            header: "Re - Exams",
+            accessor: "reexams",
+            className: "text-center",
+          },
+          {
+            header: "Remarks",
+            accessor: "remarks",
+            className: "text-center",
+          },
+          {
+            header: "Faculty",
+            accessor: "faculty",
             className: "text-center",
           }
         ]} renderRow={(row) => (
           <tr key={row.studentNumber} className="border-b border-gray-200 even:bg-slate-50 text-sm hover:bg-lamaPurpleLight">
             <td className="p-4">{row.studentNumber}</td>
-            <td className="p-4">{row.name}</td>
-            <td className="p-4">{row.course}</td>
-            <td className="p-4">
-              <Link href={`/dashboard/grades/${row.studentNumber}`}>
-                <a className="text-blue-600 hover:text-blue-900">View All Grades</a>
-              </Link>
-            </td>
+            <td className="p-4">{row.surname}</td>
+            <td className="p-4">{row.givenname}</td>
+            <td className="p-4">{row.middlename}</td>
+            <td className="p-4">{row.subjectCode}</td>
+            <td className="p-4">{row.units}</td>
+            <td className="p-4">{row.courseTitle}</td>
+            <td className="p-4">{row.grade}</td>
+            <td className="p-4">{row.reexams}</td>
+            <td className="p-4">{row.remarks}</td>
+            <td className="p-4">{row.faculty}</td>
+            
           </tr>
         )} data={JSON.parse(localStorage.getItem('grades') || '[]')}/>
         </div>
