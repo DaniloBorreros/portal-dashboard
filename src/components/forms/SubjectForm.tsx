@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import InputField from "../InputFields";
-
+import { Dispatch, SetStateAction } from "react";
 
 const schema = z.object({
   subject: z.string().min(1, { message: "Subject Name is required!" }),
@@ -16,9 +16,13 @@ type Inputs = z.infer<typeof schema>;
 const SubjectForm = ({
   type,
   data,
+  setOpen,
+  relatedData,
 }: {
   type: "create" | "update";
   data?: any;
+  setOpen: Dispatch<SetStateAction<boolean>>;
+  relatedData?: any;
 }) => {
   const {
     register,
@@ -35,16 +39,15 @@ const SubjectForm = ({
   return (
     <form className="flex flex-col gap-8" onSubmit={onSubmit}>
       <h1 className="text-xl font-semibold">
-      {type === "create" ? "Add Subjects" : "Update Subject"}
+        {type === "create" ? "Add Subjects" : "Update Subject"}
       </h1>
-      <div className="flex flex-wrap gap-4" >
-        <InputField 
+      <div className="flex flex-wrap gap-4">
+        <InputField
           label="Subject"
           name="subject"
           defaultValue={data?.name}
           register={register}
           error={errors?.subject}
-          
         />
         <InputField
           label="Teacher"

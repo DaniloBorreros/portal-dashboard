@@ -2,59 +2,83 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import InputField from "../InputFields";
 import Image from "next/image";
+import { studentSchema, StudentSchema } from "@/_lib/formValidationSchema";
+import { useRouter } from "next/navigation";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { useFormState } from "react-dom";
+import { createStudent, updateStudent } from "@/_lib/actions";
+import { toast } from "react-toastify";
+import { CldUploadWidget } from "next-cloudinary";
 
-const schema = z.object({
-  username: z
-    .string()
-    .min(3, { message: "Username must be at least 3 characters long!" })
-    .max(20, { message: "Username must be at most 20 characters long!" }),
-  email: z.string().email({ message: "Invalid email address!" }),
-  password: z
-    .string()
-    .min(8, { message: "Password must be at least 8 characters long!" }),
-  firstName: z.string().min(1, { message: "First name is required!" }),
-  lastName: z.string().min(1, { message: "Last name is required!" }),
-  phone: z.string().min(1, { message: "Phone is required!" }),
-  address: z.string().min(1, { message: "Address is required!" }),
-  bloodType: z.string().min(1, { message: "Blood Type is required!" }),
-  birthday: z.date({ message: "Birthday is required!" }),
-  sex: z.enum(["male", "female"], { message: "Sex is required!" }),
-  img: z.instanceof(File, { message: "Image is required" }),
-});
-
-type Inputs = z.infer<typeof schema>;
+/**
+ * Form for creating or updating a student.
+ *
+ * @param {{type: "create" | "update", data?: any}} props
+ * @returns {JSX.Element}
+ */
 
 const StudentForm = ({
   type,
   data,
+  setOpen,
+  relatedData,
 }: {
   type: "create" | "update";
   data?: any;
+  setOpen: Dispatch<SetStateAction<boolean>>;
+  relatedData: any;
 }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<Inputs>({
-    resolver: zodResolver(schema),
+  } = useForm<StudentSchema>({
+    resolver: zodResolver(studentSchema),
   });
 
+  const [img, setImg] = useState<any>();
+
+  const [state, formAction] = useFormState(
+    type === "create" ? createStudent : updateStudent,
+    {
+      success: false,
+      error: false,
+    }
+  );
+
   const onSubmit = handleSubmit((data) => {
+    console.log("hello");
     console.log(data);
   });
+
+  const router = useRouter();
+
+  useEffect(() => {
+    if (state.success) {
+      toast(`Student has been ${type === "create" ? "created" : "updated"}!`);
+      setOpen(false);
+      router.refresh();
+    }
+  }, [state, router, type, setOpen]);
 
   return (
     <form className="flex flex-col gap-8" onSubmit={onSubmit}>
       <h1 className="text-xl font-semibold">
-      {type === "create" ? "Add New Student" : "Update Student Information"}
+        {type === "create" ? "Add New Student" : "Update Student Information"}
       </h1>
       <span className="text-xs text-gray-400 font-medium">
         Authentication Information
       </span>
       <div className="flex justify-between flex-wrap gap-4">
+        <InputField
+          label="Student Number"
+          name="studentNumber"
+          defaultValue={data?.studentNumber}
+          register={register}
+          error={errors?.studentNumber}
+        />
         <InputField
           label="Username"
           name="username"
@@ -77,6 +101,89 @@ const StudentForm = ({
           register={register}
           error={errors?.password}
         />
+        <div className="flex flex-col gap-2 w-full md:w-1/4">
+          <label className="text-xs text-gray-500">Status</label>
+          <select
+            className="ring-[1.5px] ring-gray-300 p-2 rounded-md text-sm w-full"
+            {...register("status")}
+            defaultValue={data?.status}
+          >
+            <option value="REGULAR">REGULAR</option>
+            <option value="IRREGULAR">IRREGULAR</option>
+          </select>
+          {errors.status?.message && (
+            <p className="text-xs text-red-400">
+              {errors.status.message.toString()}
+            </p>
+          )}
+        </div>
+        <div className="flex flex-col gap-2 w-full md:w-1/4">
+          <label className="text-xs text-gray-500">Year Level</label>
+          <select
+            className="ring-[1.5px] ring-gray-300 p-2 rounded-md text-sm w-full"
+            {...register("yearLevel")}
+            defaultValue={data?.yearLevel}
+          >
+            <option value="FIRST">FIRST</option>
+            <option value="SECOND">SECOND</option>
+            <option value="THIRD">THIRD</option>
+            <option value="FOURTH">FOURTH</option>
+          </select>
+          {errors.yearLevel?.message && (
+            <p className="text-xs text-red-400">
+              {errors.yearLevel.message.toString()}
+            </p>
+          )}
+        </div>
+        <div className="flex flex-col gap-2 w-full md:w-1/4">
+          <label className="text-xs text-gray-500">Course</label>
+          <select
+            className="ring-[1.5px] ring-gray-300 p-2 rounded-md text-sm w-full"
+            {...register("course")}
+            defaultValue={data?.course}
+          >
+            <option value="BSIT">BSIT</option>
+            <option value="BSCS">BSCS</option>
+            <option value="BSED_MATH">BSED_MATH</option>
+            <option value="BSED_ENGLISH">BSED_ENGLISH</option>
+            <option value="BSCRIM">BSCRIM</option>
+            <option value="BSP">BSP</option>
+            <option value="BSBM_MM">BSBM_MM</option>
+            <option value="BSBM_HR">BSBM_HR</option>
+            <option value="BSHM">BSHM</option>
+          </select>
+          {errors.course?.message && (
+            <p className="text-xs text-red-400">
+              {errors.course.message.toString()}
+            </p>
+          )}
+        </div>
+        <InputField
+          label="Section"
+          name="section"
+          defaultValue={data?.section}
+          register={register}
+          error={errors.section}
+        />
+        <CldUploadWidget
+          uploadPreset="cvsuportal"
+          onSuccess={(result, { widget }) => {
+            setImg(result.info);
+            widget.close();
+          }}
+        >
+          {({ open }) => {
+            return (
+              <div
+                className="text-xs text-gray-500 flex items-center gap-2 cursor-pointer"
+                onClick={() => open()}
+              >
+                <Image src="/upload.png" alt="" width={28} height={28} />
+                <span>Upload a photo</span>
+              </div>
+            );
+          }}
+        </CldUploadWidget>
       </div>
       <span className="text-xs text-gray-400 font-medium">
         Personal Information
@@ -88,6 +195,13 @@ const StudentForm = ({
           defaultValue={data?.firstName}
           register={register}
           error={errors.firstName}
+        />
+        <InputField
+          label="Middle Initial"
+          name="middleInitial"
+          defaultValue={data?.middleInitial}
+          register={register}
+          error={errors.middleInitial}
         />
         <InputField
           label="Last Name"
@@ -111,13 +225,6 @@ const StudentForm = ({
           error={errors.address}
         />
         <InputField
-          label="Blood Type"
-          name="bloodType"
-          defaultValue={data?.bloodType}
-          register={register}
-          error={errors.bloodType}
-        />
-        <InputField
           label="Birthday"
           name="birthday"
           defaultValue={data?.birthday}
@@ -132,27 +239,12 @@ const StudentForm = ({
             {...register("sex")}
             defaultValue={data?.sex}
           >
-            <option value="male">Male</option>
-            <option value="female">Female</option>
+            <option value="MALE">MALE</option>
+            <option value="FEMALE">FEMALE</option>
           </select>
           {errors.sex?.message && (
             <p className="text-xs text-red-400">
               {errors.sex.message.toString()}
-            </p>
-          )}
-        </div>
-        <div className="flex flex-col gap-2 w-full md:w-1/4 justify-center">
-          <label
-            className="text-xs text-gray-500 flex items-center gap-2 cursor-pointer"
-            htmlFor="img"
-          >
-            <Image src="/upload.png" alt="" width={28} height={28} />
-            <span>Upload a photo</span>
-          </label>
-          <input type="file" id="img" {...register("img")} className="hidden" />
-          {errors.img?.message && (
-            <p className="text-xs text-red-400">
-              {errors.img.message.toString()}
             </p>
           )}
         </div>

@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import InputField from "../InputFields";
-
+import { Dispatch, SetStateAction } from "react";
 
 const schema = z.object({
   classname: z.string().min(1, { message: "Class Name Name is required!" }),
@@ -18,9 +18,13 @@ type Inputs = z.infer<typeof schema>;
 const ClassesForm = ({
   type,
   data,
+  setOpen,
+  relatedData,
 }: {
   type: "create" | "update";
   data?: any;
+  setOpen: Dispatch<SetStateAction<boolean>>;
+  relatedData?: any;
 }) => {
   const {
     register,
@@ -37,16 +41,15 @@ const ClassesForm = ({
   return (
     <form className="flex flex-col gap-8" onSubmit={onSubmit}>
       <h1 className="text-xl font-semibold">
-      {type === "create" ? "Create New Class" : "Update Class"}
+        {type === "create" ? "Create New Class" : "Update Class"}
       </h1>
-      <div className="flex flex-wrap gap-2 justify-between" >
-        <InputField 
+      <div className="flex flex-wrap gap-2 justify-between">
+        <InputField
           label="Class Name"
           name="classname"
           defaultValue={data?.name}
           register={register}
           error={errors?.classname}
-          
         />
         <InputField
           label="Capacity"
@@ -63,11 +66,9 @@ const ClassesForm = ({
           error={errors?.grade}
         />
       </div>
-      <span className="text-xs text-gray-400 font-medium">
-        Teacher
-      </span>
-      <div className="flex flex-wrap gap-2 justify-between" >
-      <InputField
+      <span className="text-xs text-gray-400 font-medium">Teacher</span>
+      <div className="flex flex-wrap gap-2 justify-between">
+        <InputField
           label="Supervisor"
           name="teacher"
           defaultValue={data?.supervisor}
@@ -75,7 +76,6 @@ const ClassesForm = ({
           error={errors?.teacher}
         />
       </div>
-
 
       <button className="bg-blue-400 text-white p-2 rounded-md ">
         {type === "create" ? "Create" : "Update"}

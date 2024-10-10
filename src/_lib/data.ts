@@ -1,6 +1,6 @@
 // TEMPORARY DATA
 
-export let role = "student";
+export let role = "admin";
 
 export const teachersData = [
   {
@@ -2249,14 +2249,14 @@ export const announcementsData1 = [
     title: "Announcement 1",
     class: "Class 1",
     date: "January 1, 2023",
-    datas: "Ako si Jelixces Cajontoy, From BSCS 4th year",
+    description: "Ako si Jelixces Cajontoy, From BSCS 4th year",
   },
   {
     id: 2,
     title: "Announcement 2",
     class: "Class 1",
     date: "January 1, 2023",
-    datas: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, qui nobis rem delectus iste possimus",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, qui nobis rem delectus iste possimus",
   }
 ];
 

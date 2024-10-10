@@ -50,8 +50,8 @@ const AnnouncementForm = ({
           
         />
         <InputField
-          label="Class"
-          name="class"
+          label="Description"
+          name="description"
           defaultValue={data?.class}
           register={register}
           error={errors?.class}
